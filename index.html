@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia tático de estudos para o concurso de Soldado da PMGO: Penal Militar, Processo Penal, Constitucional, TAF, flashcards e simulados.">
+  <meta name="theme-color" content="#0c121d">
+  <meta name="color-scheme" content="dark light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Guia PMGO">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c121d'/%3E%3Cpath d='M32 8 12 17v14c0 12 8.5 21 20 25 11.500-4 20-13 20-25V17z' fill='none' stroke='%23eab308' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M32 22v12l8 5' fill='none' stroke='%23eab308' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <title>GUIA TÁTICO PMGO | Soldado & Cadete - Preparatório Definitivo</title>
+  <!-- Tailwind CSS CDN -->
+  <script>
+    tailwind.config = {
+      <link rel="stylesheet" href="tailwind.css">
+  </script>
+  <style>
+    /* Acessibilidade */
+    :focus-visible { outline: 2px solid #eab308; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+    /* Estilização da barra de rolagem tática */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0c121d; }
+    ::-webkit-scrollbar-thumb { background: #27364f; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #eab308; }
+
+    /* Efeito de Card 3D para Flashcards */
+    .perspective-card { perspective: 1000px; }
+    .card-flipper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .card-flipper.is-flipped { transform: rotateY(180deg); }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 0.75rem;
+    }
+    .card-back { transform: rotateY(180deg); }
+
+    /* Folha de Impressão Limpa para PDF e Impressão (Exportação Tática) */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      header, nav, #navTabsContainer, #btnEssayTimer, #btnGradeEssay,
+      .no-print, button, input[type="text"], select, .tab-btn, footer {
+        display: none !important;
+      }
+      #printReportSection {
+        display: block !important;
+        color: #000000 !important;
+        background: #ffffff !important;
+      }
+      .tab-content {
+        display: none !important;
+      }
+      .print-card {
+        border: 1px solid #cccccc !important;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-tactical-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-black">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-amber-500 focus:text-black focus:font-bold focus:px-3 focus:py-2 focus:rounded">Pular para o conteúdo</a>
+
+  <!-- ================= TOP OPERATIONAL HEADER ================= -->
+  <header class="sticky top-0 z-50 bg-tactical-900/95 backdrop-blur border-b border-tactical-800 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Logotipo Tático com SVG Inline Blindado -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('tabTrilha')">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-500 via-emerald-700 to-slate-900 p-0.5 shadow-lg shadow-amber-500/10 flex items-center justify-center">
+            <div class="w-full h-full bg-tactical-950 rounded-[10px] flex items-center justify-center text-amber-400">
+              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-lg sm:text-2xl font-black tracking-wider text-white">GUIA TÁTICO PMGO</span>
+              <span class="bg-amber-400/10 text-amber-400 border border-amber-400/30 text-[10px] font-bold px-2 py-0.5 rounded tracking-widest hidden sm:inline-block">ELITE SOLDADO & CADETE</span>
+            </div>
+            <p class="text-xs text-slate-400">Vade Mecum Esquematizado • Foco Total na Banca</p>
+          </div>
+        </div>
+
+        <!-- Indicador de Progresso e Ações de Topo -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Rastreador Rápido de Horas Líquidas no Topo -->
+          <div class="hidden xl:flex items-center gap-2 bg-tactical-950 px-3 py-1.5 rounded-lg border border-tactical-800">
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="text-left">
+              <span class="text-[9px] uppercase font-bold text-slate-400 block leading-tight">Horas Líquidas</span>
+              <span id="topTotalStudyHours" class="text-xs font-black text-emerald-400 font-mono">00h 00m</span>
+            </div>
+          </div>
+
+          <div class="hidden lg:flex flex-col items-end">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-semibold text-slate-400">Progresso do Edital</span>
+              <span id="topProgressBadge" class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20 font-mono">0%</span>
+            </div>
+            <div class="w-32 h-2 bg-tactical-950 rounded-full overflow-hidden border border-tactical-800">
+              <div id="topProgressBar" class="h-full bg-gradient-to-r from-amber-500 to-emerald-500 transition-all duration-300 rounded-full" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Botão Exportar PDF/Print -->
+          <button type="button" onclick="exportProgress()" title="Baixar backup do progresso" aria-label="Exportar progresso" class="no-print text-xs font-bold px-2.5 py-1.5 rounded-lg bg-tactical-950 text-slate-300 border border-tactical-800 hover:border-amber-500 transition">⬇ Backup</button>
+          <button type="button" onclick="document.getElementById('importFile').click()" title="Restaurar backup do progresso" aria-label="Importar progresso" class="no-print text-xs font-bold px-2.5 py-1.5 rounded-lg bg-tactical-950 text-slate-300 border border-tactical-800 hover:border-amber-500 transition">⬆ Restaurar</button>
+          <input type="file" id="importFile" accept="application/json,.json" class="hidden" onchange="importProgress(this)">
+          <button onclick="triggerPrintExport()" class="flex items-center gap-1.5 bg-tactical-850 hover:bg-tactical-800 border border-tactical-700 text-slate-200 font-bold px-2.5 sm:px-3 py-2 rounded-lg text-xs tracking-wider transition active:scale-95" title="Exportar Caderno de Erros e Resumo em PDF">
+            <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span class="hidden sm:inline">Exportar PDF</span>
+          </button>
+
+          <!-- Botão Vésperas 5 Minutos -->
+          <button onclick="toggleModal('modalVesperas')" class="flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-extrabold px-3 py-2 rounded-lg text-xs tracking-wider shadow-lg shadow-amber-500/20 transition active:scale-95">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <span>Vésperas 5 Min</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de Busca Rápida -->
+      <div class="pb-3 pt-1">
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </span>
+          <input type="text" id="quickSearchInput" onkeyup="handleQuickSearch(event)" autocomplete="off" aria-label="Pesquisar no guia" placeholder="Pesquisa Tática: Pomodoro, Goiás, abordagem, viatura, súmula 11, Tema 280, Art. 9, motim, redação, TAF..." 
+            class="w-full bg-tactical-850 border border-tactical-800 rounded-lg pl-9 pr-4 py-2 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition shadow-inner">
+          <div id="quickSearchResults" role="listbox" class="hidden absolute z-50 left-0 right-0 mt-1 max-h-72 overflow-y-auto bg-tactical-900 border border-tactical-700 rounded-lg shadow-2xl"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação em Abas (Scrollável e Responsiva com as Novas Seções) -->
+    <div class="border-t border-tactical-800 bg-tactical-950">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto py-2" id="navTabsContainer">
+          <button onclick="switchTab('tabTrilha')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 bg-amber-500 text-black shadow-md shadow-amber-500/20" data-tab="tabTrilha">
+            <span>🎯</span> Trilha & Pomodoro
+          </button>
+          <button onclick="switchTab('tabRedacao')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabRedacao">
+            <span>✍️</span> Oficina & Corretor IA
+          </button>
+          <button onclick="switchTab('tabViatura')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabViatura">
+            <span>🚔</span> Casos de Viatura
+          </button>
+          <button onclick="switchTab('tabSumulas')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabSumulas">
+            <span>⚖️</span> Súmulas STF / STJ
+          </button>
+          <button onclick="switchTab('tabGoias')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabGoias">
+            <span>🗺️</span> Realidade de Goiás
+          </button>
+          <button onclick="switchTab('tabPenal')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabPenal">
+            <span>⚔️</span> Penal Militar & Comum
+          </button>
+          <button onclick="switchTab('tabProcPenal')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabProcPenal">
+            <span>📑</span> Processo Penal
+          </button>
+          <button onclick="switchTab('tabConst')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabConst">
+            <span>📜</span> Constitucional Policial
+          </button>
+          <button onclick="switchTab('tabEstatuto')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabEstatuto">
+            <span>⭐</span> Estatuto PMGO
+          </button>
+          <button onclick="switchTab('tabFlashcards')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabFlashcards">
+            <span>🧠</span> Flashcards & Erros
+          </button>
+          <button onclick="switchTab('tabQuiz')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabQuiz">
+            <span>⚡</span> Simulado 10Q AOCP
+          </button>
+          <button onclick="switchTab('tabTaf')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800" data-tab="tabTaf">
+            <span>🏃</span> TAF Oficial PMGO
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= CONTAINER PRINCIPAL ================= -->
+  <main id="main" tabindex="-1" class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- ============================================================== -->
+    <!-- ABA 1: TRILHA 90 DIAS + CICLO & POMODORO OPERACIONAL           -->
+    <!-- ============================================================== -->
+    <section id="tabTrilha" class="tab-content space-y-6">
+      
+      <!-- Banner de Entrada -->
+      <div class="bg-gradient-to-r from-emerald-950/60 via-tactical-900 to-tactical-950 border border-emerald-500/30 rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-extrabold uppercase mb-3">
+          Diretriz Inicial • Do Zero à Farda da PMGO
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-black text-white">O Norte Cirúrgico: Cronograma e Horas Líquidas</h1>
+        <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+          Controle suas horas líquidas, mantenha foco nos blocos de 50 minutos e acompanhe os 90 dias até a prova com disciplina militar.
+        </p>
+      </div>
+
+      <!-- MÓDULO 1 NOVO: POMODORO OPERACIONAL & REGISTRO DE HORAS LÍQUIDAS -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-tactical-800 pb-4">
+          <div>
+            <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">CICLO DE ESTUDOS INTENSIVO</span>
+            <h3 class="text-lg font-black text-white">Pomodoro Tático (50/10) & Registro de Horas Líquidas</h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400">Total Geral:</span>
+            <span id="pomoTotalGlobal" class="text-base font-black text-emerald-400 font-mono bg-tactical-950 px-3 py-1 rounded-lg border border-tactical-800">00h 00m</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- Temporizador Circular / Cartão Principal -->
+          <div class="bg-tactical-950 p-6 rounded-xl border border-tactical-800 flex flex-col items-center justify-center text-center space-y-4">
+            <div class="flex items-center gap-2 bg-tactical-900 border border-tactical-800 rounded-lg p-1 text-xs">
+              <button onclick="setPomoMode('work')" id="btnPomoModeWork" class="px-3 py-1 rounded-md font-bold bg-amber-500 text-black transition">Estudo (50 min)</button>
+              <button onclick="setPomoMode('break')" id="btnPomoModeBreak" class="px-3 py-1 rounded-md font-bold text-slate-400 hover:text-white transition">Descanso (10 min)</button>
+            </div>
+
+            <!-- Display do Relógio -->
+            <div class="relative py-2">
+              <div class="text-5xl sm:text-6xl font-black font-mono tracking-tight text-white drop-shadow-md" id="pomoClockDisplay">50:00</div>
+              <span id="pomoStatusText" class="text-xs font-mono text-amber-400 uppercase tracking-widest mt-1 block">Pronto para a Missão</span>
+            </div>
+
+            <!-- Seletor de Disciplina -->
+            <div class="w-full text-left">
+              <label class="text-[11px] font-bold text-slate-400 uppercase block mb-1">Computar Horas Líquidas Para:</label>
+              <select id="pomoSubjectSelect" class="w-full bg-tactical-900 border border-tactical-800 rounded-lg px-3 py-2 text-xs font-bold text-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-500">
+                <option value="penalMilitar">Direito Penal Militar</option>
+                <option value="procPenal">Processo Penal & Flagrante</option>
+                <option value="constitucional">Direito Constitucional</option>
+                <option value="administrativo">Direito Administrativo</option>
+                <option value="estatutoPmgo">Estatuto PMGO & Legislação</option>
+                <option value="realidadeGoias">Realidade de Goiás (Hist/Geo)</option>
+                <option value="redacao">Oficina de Redação</option>
+                <option value="simulados">Resolução de Questões / Simulados</option>
+              </select>
+            </div>
+
+            <!-- Controles do Pomodoro -->
+            <div class="flex gap-2 w-full pt-1">
+              <button onclick="togglePomoTimer()" id="btnPomoStart" class="flex-1 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-black font-extrabold text-xs rounded-lg transition shadow-lg shadow-emerald-500/20">
+                Iniciar Estudo
+              </button>
+              <button onclick="resetPomoTimer()" class="px-4 py-2.5 bg-tactical-900 hover:bg-tactical-800 border border-tactical-800 text-slate-300 font-bold text-xs rounded-lg transition">
+                Resetar
+              </button>
+            </div>
+          </div>
+
+          <!-- Quadro de Horas Líquidas por Matéria -->
+          <div class="lg:col-span-2 bg-tactical-950 p-5 rounded-xl border border-tactical-800 flex flex-col justify-between space-y-4">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Distribuição do Ciclo de Horas Estudadas</span>
+              <button onclick="resetAllStudyHours()" class="text-[10px] text-red-400 hover:underline">Zerar Horas</button>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs" id="hoursGridContainer">
+              <!-- Renderizado via JS -->
+            </div>
+
+            <div class="p-3 bg-tactical-900 border border-tactical-800 rounded-lg text-xs text-slate-400 flex items-start gap-2">
+              <span class="text-amber-400 font-bold text-sm">💡</span>
+              <p>
+                <strong>Regra das Horas Líquidas:</strong> O cronômetro só computa tempo quando está rodando. Se pausar para atender o celular ou abrir redes sociais, o tempo é interrompido.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tríade de Aprovação -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-tactical-900 border border-tactical-800 rounded-xl p-5 hover:border-amber-500/40 transition">
+          <div class="text-amber-400 font-black text-2xl mb-1">50%</div>
+          <h3 class="text-sm font-bold text-white mb-1">Letra de Lei Pura</h3>
+          <p class="text-xs text-slate-400">Memorize os artigos-chave: Art. 9º CPM, Art. 5º e 144 da CF, Lei 8.033/75 e Lei de Abuso de Autoridade.</p>
+        </div>
+        <div class="bg-tactical-900 border border-tactical-800 rounded-xl p-5 hover:border-emerald-500/40 transition">
+          <div class="text-emerald-400 font-black text-2xl mb-1">35%</div>
+          <h3 class="text-sm font-bold text-white mb-1">Questões Massivas</h3>
+          <p class="text-xs text-slate-400">Resolva no mínimo 30 questões diárias. Questões policiais repetem os mesmos 15 dispositivos legais todos os anos.</p>
+        </div>
+        <div class="bg-tactical-900 border border-tactical-800 rounded-xl p-5 hover:border-sky-500/40 transition">
+          <div class="text-sky-400 font-black text-2xl mb-1">15%</div>
+          <h3 class="text-sm font-bold text-white mb-1">Redação & TAF Imediato</h3>
+          <p class="text-xs text-slate-400">Pratique 1 redação semanal e treine a barra fixa e a corrida desde o primeiro dia. O TAF reprova mais de 25% dos aprovados.</p>
+        </div>
+      </div>
+
+      <!-- Checklist de Metas Diárias com Persistência -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Metas do Soldado (Checklist Tático)
+          </h3>
+          <span class="text-xs text-slate-400">Progresso salvo no dispositivo</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="checklistWrapper">
+          <!-- Gerado dinamicamente via JS -->
+        </div>
+      </div>
+
+      <!-- Cronograma 90 Dias -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white">Cronograma dos 90 Dias (Ciclo de Estudo)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-tactical-950 rounded-xl border border-tactical-800">
+            <span class="text-amber-400 font-bold uppercase block mb-1">Fase 1: Dias 01 a 30 (Alicerce)</span>
+            <ul class="text-slate-300 space-y-1 list-disc list-inside">
+              <li>Art. 5º e 144 CF/88</li>
+              <li>Art. 9º CPM e crimes contra disciplina</li>
+              <li>Estrutura de 4 parágrafos na redação</li>
+              <li>Treino físico 3x por semana (barra e corrida)</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-tactical-950 rounded-xl border border-tactical-800">
+            <span class="text-emerald-400 font-bold uppercase block mb-1">Fase 2: Dias 31 a 60 (Específicas)</span>
+            <ul class="text-slate-300 space-y-1 list-disc list-inside">
+              <li>Estatuto PMGO (Lei 8.033) e Regulamento 4.717</li>
+              <li>Leis Penais: Abuso, Drogas e Armas</li>
+              <li>História e Geografia de Goiás</li>
+              <li>Simulados quinzenais de 40 questões</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-tactical-950 rounded-xl border border-tactical-800">
+            <span class="text-sky-400 font-bold uppercase block mb-1">Fase 3: Dias 61 a 90 (Ajuste Final)</span>
+            <ul class="text-slate-300 space-y-1 list-disc list-inside">
+              <li>Revisão diária com Flashcards & Mnemônicos</li>
+              <li>Caderno de Erros dos simulados</li>
+              <li>Simulados cronometrados de 4 horas</li>
+              <li>Simulado oficial de TAF com aferição estrita</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 2: OFICINA & CORRETOR INTELIGENTE DE REDAÇÃO AOCP          -->
+    <!-- ============================================================== -->
+    <section id="tabRedacao" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-amber-950/40 via-tactical-900 to-tactical-950 border border-amber-500/30 rounded-2xl p-6">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">AVALIAÇÃO EM TEMPO REAL</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Oficina de Redação & Corretor IA (Padrão AOCP)</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">
+          Escreva seu texto dissertativo-argumentativo ou selecione um tema tático. O sistema avalia seu texto em <strong>5 critérios oficiais</strong>, compara com o benchmark dos primeiros colocados e indica os desvios gramaticais e estruturais.
+        </p>
+      </div>
+
+      <!-- Seletor de Temas e Cronômetro -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-4">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-tactical-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-400 uppercase">Tema da Prova:</span>
+            <select id="essayThemeSelect" onchange="applySelectedTheme()" class="bg-tactical-950 border border-tactical-800 rounded-lg px-3 py-1.5 text-xs text-amber-400 font-bold focus:outline-none focus:ring-1 focus:ring-amber-500">
+              <option value="0">1. A atuação da PMGO no combate ao crime organizado e a integração com a sociedade</option>
+              <option value="1">2. O uso progressivo da força e a garantia dos direitos humanos na atividade policial</option>
+              <option value="2">3. O papel da tecnologia e inteligência artificial no policiamento ostensivo e preventivo</option>
+              <option value="3">4. A saúde mental do policial militar e os reflexos na segurança pública</option>
+            </select>
+          </div>
+          
+          <!-- Timer de Prova -->
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5 bg-tactical-950 border border-tactical-800 px-3 py-1 rounded-lg">
+              <span class="text-xs text-slate-400 font-mono">Tempo:</span>
+              <span id="essayTimerDisplay" class="text-xs font-bold text-amber-400 font-mono">00:00</span>
+            </div>
+            <button onclick="toggleEssayTimer()" id="btnEssayTimer" class="px-2.5 py-1 bg-tactical-800 hover:bg-tactical-700 text-xs text-slate-200 font-bold rounded transition">
+              Iniciar
+            </button>
+          </div>
+        </div>
+
+        <!-- Área de Redação -->
+        <div>
+          <div class="flex justify-between items-center mb-1 text-xs">
+            <div class="flex gap-4 text-slate-400">
+              <span>Palavras: <strong id="essayWordCount" class="text-white font-mono">0</strong></span>
+              <span>Parágrafos: <strong id="essayParaCount" class="text-white font-mono">0</strong>/4</span>
+              <span>Linhas Estimadas: <strong id="essayLineCount" class="text-amber-400 font-mono">0</strong> (Meta: 20-30)</span>
+            </div>
+            <button onclick="insertSampleEssay()" class="text-xs text-amber-400 hover:underline font-bold">
+              Carregar Exemplo Nota 95
+            </button>
+          </div>
+          <textarea id="essayInputText" oninput="updateEssayStats()" rows="14" placeholder="Digite aqui sua redação dissertativa-argumentativa em 4 parágrafos (Introdução, D1, D2 e Proposta de Intervenção)..." 
+            class="w-full bg-tactical-950 border border-tactical-800 rounded-xl p-4 text-xs sm:text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-amber-500 leading-relaxed font-sans"></textarea>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap justify-between items-center gap-3 pt-2">
+          <div class="text-[11px] text-slate-400">
+            A banca AOCP exige tese clara, conectivos interparágrafos e proposta com Agente, Ação, Meio e Efeito.
+          </div>
+          <div class="flex gap-2">
+            <button onclick="clearEssay()" class="px-3 py-2 bg-tactical-950 hover:bg-tactical-800 text-slate-400 text-xs font-bold rounded-lg border border-tactical-800 transition">
+              Limpar
+            </button>
+            <button onclick="evaluateEssayNow()" id="btnGradeEssay" class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black text-xs font-black rounded-lg transition shadow-lg shadow-amber-500/20 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              <span>Avaliar Redação Automaticamente</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Painel de Resultado da Correção -->
+      <div id="essayResultBox" class="hidden bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-6">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-tactical-800 pb-4">
+          <div>
+            <span class="text-xs font-mono font-bold text-emerald-400 uppercase">Boletim de Avaliação AOCP</span>
+            <h3 class="text-xl font-black text-white">Relatório Analítico de Desempenho</h3>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="text-right">
+              <span class="text-xs text-slate-400 block">Nota Final</span>
+              <span id="essayTotalScore" class="text-3xl font-black text-amber-400 font-mono">0</span>
+              <span class="text-xs text-slate-500 font-mono">/100 pts</span>
+            </div>
+            <div id="essayVerdictBadge" class="px-3 py-1.5 rounded-lg text-xs font-black tracking-widest uppercase">
+              APROVADO
+            </div>
+          </div>
+        </div>
+
+        <!-- As 5 Competências AOCP -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3" id="criteriaCardsContainer">
+          <!-- Gerado via JS -->
+        </div>
+
+        <!-- Comparativo com o Benchmark dos Melhores Candidatos -->
+        <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800 space-y-3">
+          <div class="text-xs font-bold text-amber-400 uppercase tracking-wider font-mono">
+            Métricas Comparadas com o Benchmark (Candidatos Aprovados na PMGO)
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div class="p-3 bg-tactical-900 rounded-lg">
+              <span class="text-slate-400 block mb-1">Densidade de Conectivos</span>
+              <strong id="metricConectivos" class="text-white text-sm">Bom (12 detectados)</strong>
+              <p class="text-[11px] text-slate-500 mt-1">Média aprovados: >10 conectivos inter/intraparágrafos.</p>
+            </div>
+            <div class="p-3 bg-tactical-900 rounded-lg">
+              <span class="text-slate-400 block mb-1">Repertório Constitucional</span>
+              <strong id="metricRepertorio" class="text-white text-sm">Presente (CF/88 citada)</strong>
+              <p class="text-[11px] text-slate-500 mt-1">Uso de legislação e sociologia valoriza a tese.</p>
+            </div>
+            <div class="p-3 bg-tactical-900 rounded-lg">
+              <span class="text-slate-400 block mb-1">Estrutura da Proposta</span>
+              <strong id="metricIntervencao" class="text-white text-sm">4 de 4 elementos</strong>
+              <p class="text-[11px] text-slate-500 mt-1">Agente, Ação, Modo/Meio e Finalidade social.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parecer Detalhado e Apontamento de Erros -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
+          <div class="p-4 bg-emerald-950/20 border border-emerald-500/30 rounded-xl space-y-2">
+            <span class="text-emerald-400 font-bold block text-sm">✓ Pontos Fortes Observados:</span>
+            <ul id="essayStrengthsList" class="text-slate-300 space-y-1 list-disc list-inside">
+              <!-- Gerado via JS -->
+            </ul>
+          </div>
+          <div class="p-4 bg-red-950/20 border border-red-500/30 rounded-xl space-y-2">
+            <span class="text-red-400 font-bold block text-sm">⚠️ Desvios & Pontos a Corrigir:</span>
+            <ul id="essayFlawsList" class="text-slate-300 space-y-1 list-disc list-inside">
+              <!-- Gerado via JS -->
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- MÓDULO 3 NOVO: CASOS PRÁTICOS DE VIATURA & SIMULADOR DE RUA    -->
+    <!-- ============================================================== -->
+    <section id="tabViatura" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-blue-950/50 via-tactical-900 to-tactical-950 border border-blue-500/40 rounded-2xl p-6">
+        <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-mono">LABORATÓRIO DE DECISÃO TÁTICA</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Casos Práticos de Viatura & Abordagem Policial</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">
+          A banca AOCP formula questões narrando ocorrências de viatura. Escolha a conduta jurídica escorreita diante de dilemas reais de rua e evite a anulação de provas ou o crime de abuso de autoridade.
+        </p>
+      </div>
+
+      <!-- Navegador de Casos de Rua -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-4 space-y-2">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 font-mono">Ocorrências Operacionais</span>
+          <div class="space-y-1.5" id="streetCasesNav">
+            <!-- Botões dos casos gerados via JS -->
+          </div>
+        </div>
+
+        <!-- Painel do Caso Ativo -->
+        <div class="lg:col-span-3 bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-5" id="streetCaseActiveCard">
+          <!-- Renderizado via JS -->
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- MÓDULO 4 NOVO: SÚMULAS VINCULANTES & TESES DO STF/STJ          -->
+    <!-- ============================================================== -->
+    <section id="tabSumulas" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-amber-950/50 via-tactical-900 to-tactical-950 border border-amber-500/40 rounded-2xl p-6">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">JURISPRUDÊNCIA SUMULADA</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Súmulas Vinculantes & Teses dos Tribunais Superiores</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">
+          O raio-x dos enunciados que mais derrubam candidatos em carreiras policiais: algemas, flagrante provocado, domicílio e busca pessoal.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="sumulasCardsGrid">
+        
+        <!-- SV 11: Algemas -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3 hover:border-amber-500/30 transition">
+          <div class="flex justify-between items-center">
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs font-bold">STF • Súmula Vinculante 11</span>
+            <span class="text-[10px] bg-tactical-950 text-slate-400 px-2 py-0.5 rounded">Uso de Algemas</span>
+          </div>
+          <h4 class="text-white font-bold text-sm">O Mnemônico PRFD & Justificativa Escrita Obrigatória</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            O uso de algemas só é lícito em caso de <strong>P</strong>erigo à integridade física própria ou alheia, <strong>R</strong>esistência do preso ou fundado receio de <strong>F</strong>uga ou <strong>D</strong>esobediência armada.
+          </p>
+          <div class="bg-tactical-950 p-3 rounded-xl border border-red-500/30 text-xs text-red-300 space-y-1">
+            <strong>Penalidade por Descumprimento:</strong> Nulidade da prisão ou do ato processual correspondente, responsabilidade civil e disciplinar do policial, e incidência na <strong>Lei de Abuso de Autoridade (Lei 13.869/19)</strong>.
+          </div>
+        </div>
+
+        <!-- Tema 280 STF: Inviolabilidade Domiciliar -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3 hover:border-amber-500/30 transition">
+          <div class="flex justify-between items-center">
+            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-mono text-xs font-bold">STF • Repercussão Geral Tema 280</span>
+            <span class="text-[10px] bg-tactical-950 text-slate-400 px-2 py-0.5 rounded">Entrada em Domicílio</span>
+          </div>
+          <h4 class="text-white font-bold text-sm">Necessidade de Justa Causa Prévia (Fundadas Razões)</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            A entrada forçada em domicílio sem mandado judicial só é lícita quando amparada em <strong>fundadas razões prévias</strong>, devidamente justificadas pelas circunstâncias do caso concreto.
+          </p>
+          <div class="bg-tactical-950 p-3 rounded-xl border border-amber-500/30 text-xs text-amber-300 space-y-1">
+            <strong>Pegadinha Fatal da Banca:</strong> O flagrante descoberto <em>a posteriori</em> NÃO convalida a invasão ilícita. Se a guarnição entrou sem justa causa prévia e achou drogas, a prova é inteiramente nula!
+          </div>
+        </div>
+
+        <!-- Súmula 145 STF: Flagrante Preparado -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3 hover:border-amber-500/30 transition">
+          <div class="flex justify-between items-center">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">STF • Súmula 145</span>
+            <span class="text-[10px] bg-tactical-950 text-slate-400 px-2 py-0.5 rounded">Flagrante Provocado</span>
+          </div>
+          <h4 class="text-white font-bold text-sm">Flagrante Preparado é Crime Impossível</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "Não há crime quando a preparação do flagrante pela polícia torna impossível a sua consumação." (Ex: Policial finge ser usuário e induz o cidadão a conseguir droga que ele não possuía).
+          </p>
+          <div class="bg-tactical-950 p-3 rounded-xl border border-tactical-800 text-xs text-slate-300 space-y-1">
+            <strong>Diferença crucial:</strong> <em>Flagrante Esperado</em> (policial apenas monitora e aguarda a conduta criminosa espontânea) é <strong>100% VÁLIDO E LEGAL</strong>.
+          </div>
+        </div>
+
+        <!-- RHC 158.580/BA e HC 598.051/SP (STJ) -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3 hover:border-amber-500/30 transition">
+          <div class="flex justify-between items-center">
+            <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 font-mono text-xs font-bold">STJ • 5ª e 6ª Turmas</span>
+            <span class="text-[10px] bg-tactical-950 text-slate-400 px-2 py-0.5 rounded">Busca Pessoal (Art. 244 CPP)</span>
+          </div>
+          <h4 class="text-white font-bold text-sm">Mero Nervosismo NÃO Autoriza Revista Pessoal</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            A "atitude suspeita" genérica, o nervosismo momentâneo, denúncia anônima desacompanhada de diligências prévias ou o simples fato de estar em local conhecido pelo tráfico <strong>NÃO constituem fundada suspeita</strong> hábil para revista pessoal ou veicular.
+          </p>
+          <div class="bg-tactical-950 p-3 rounded-xl border border-tactical-800 text-xs text-slate-300 space-y-1">
+            <strong>Exigência:</strong> Elementos fáticos objetivos (volume visível de arma na cintura, descarte de pacote ao avistar a guarnição).
+          </div>
+        </div>
+
+        <!-- Súmula Vinculante 14 -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3 hover:border-amber-500/30 transition">
+          <div class="flex justify-between items-center">
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs font-bold">STF • Súmula Vinculante 14</span>
+            <span class="text-[10px] bg-tactical-950 text-slate-400 px-2 py-0.5 rounded">Acesso aos Autos</span>
+          </div>
+          <h4 class="text-white font-bold text-sm">Direito do Defensor no Inquérito Policial (IP e IPM)</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            É direito do defensor, no interesse do representado, ter amplo acesso aos elementos de prova que, <strong>já documentados</strong> em procedimento investigatório, digam respeito ao exercício do direito de defesa.
+          </p>
+          <div class="bg-tactical-950 p-3 rounded-xl border border-tactical-800 text-xs text-slate-300">
+            <strong>Ressalva de Prova:</strong> Diligências <em>ainda em andamento</em> (ex: escuta telefônica em curso) podem ser mantidas em sigilo até sua formalização nos autos.
+          </div>
+        </div>
+
+        <!-- Súmulas Penais & Estatuto do Desarmamento -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3 hover:border-amber-500/30 transition">
+          <div class="flex justify-between items-center">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">STJ • Súmulas 511, 545 e 599</span>
+            <span class="text-[10px] bg-tactical-950 text-slate-400 px-2 py-0.5 rounded">Doutrina Consolidada</span>
+          </div>
+          <h4 class="text-white font-bold text-sm">Pacote de Súmulas Policiais</h4>
+          <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+            <li><strong>Súmula 599 STJ:</strong> O princípio da insignificância é <em>inaplicável</em> aos crimes contra a Administração Pública.</li>
+            <li><strong>Porte de Arma Desmuniciada (STF/STJ):</strong> Crime de perigo abstrato; tipifica porte ilegal mesmo descarregada.</li>
+            <li><strong>Súmula 545 STJ:</strong> Confissão espontânea reduz a pena mesmo se retratada em juízo se serviu de base à condenação.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- MÓDULO 5 NOVO: REALIDADE DE GOIÁS (HISTÓRIA & GEOGRAFIA)       -->
+    <!-- ============================================================== -->
+    <section id="tabGoias" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-emerald-950/50 via-tactical-900 to-tactical-950 border border-emerald-500/40 rounded-2xl p-6">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono">CONHECIMENTOS REGIONAIS OBRIGATÓRIOS</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Realidade Étnica, Social, Histórica & Geográfica de Goiás</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">
+          A disciplina que define a nota de corte para Soldado e Cadete da PMGO. Linha do tempo da mudança da capital, divisão socioeconômica das mesorregiões, bacias hidrográficas e bioma Cerrado.
+        </p>
+      </div>
+
+      <!-- 1. LINHA DO TEMPO: A MUDANÇA DA CAPITAL (PEDRO LUDOVICO) -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-5">
+        <div class="flex justify-between items-center border-b border-tactical-800 pb-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-mono">História de Goiás</span>
+            A Mudança da Capital: De Vila Boa para Goiânia
+          </h3>
+          <span class="text-xs text-slate-400 font-mono">1930 - 1937</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800 space-y-1">
+            <span class="text-amber-400 font-mono font-bold block text-sm">1. 1930: Fim das Oligarquias</span>
+            <p class="text-slate-300 leading-relaxed">
+              A Revolução de 1930 destitui a oligarquia dos Caiado em Goiás. Getúlio Vargas nomeia <strong>Pedro Ludovico Teixeira</strong> como Interventor Federal no Estado.
+            </p>
+          </div>
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800 space-y-1">
+            <span class="text-amber-400 font-mono font-bold block text-sm">2. 1933: Pedra Fundamental</span>
+            <p class="text-slate-300 leading-relaxed">
+              Decreto nº 3.359/1933 escolhe a região de Campinas. Lançamento da <strong>Pedra Fundamental de Goiânia</strong> em 24 de outubro de 1933. Projeto urbanístico de Attilio Corrêa Lima (estilo Art Déco).
+            </p>
+          </div>
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800 space-y-1">
+            <span class="text-emerald-400 font-mono font-bold block text-sm">3. Marcha para o Oeste</span>
+            <p class="text-slate-300 leading-relaxed">
+              Integração de Goiás ao projeto nacional de ocupação do interior durante o Estado Novo de Vargas. Criação da Colônia Agrícola Nacional de Goiás (CANG / Ceres).
+            </p>
+          </div>
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800 space-y-1">
+            <span class="text-emerald-400 font-mono font-bold block text-sm">4. 1937: Transferência Oficial</span>
+            <p class="text-slate-300 leading-relaxed">
+              Decreto nº 1.816 de março de 1937 transfere oficialmente a sede administrativa de Goiás (antiga Vila Boa) para <strong>Goiânia</strong>. Em 1942 ocorre o Batismo Cultural.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. QUADRO SOCIOECONÔMICO DAS REGIÕES GOIANAS -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-xs font-mono">Geografia Humana & Econômica</span>
+          As 3 Regiões Mais Cobradas pela Banca AOCP
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+          
+          <!-- Entorno do DF -->
+          <div class="p-4 bg-tactical-950 rounded-xl border border-red-500/30 space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-red-400 font-black text-sm">ENTORNO DO DF</span>
+              <span class="text-[10px] bg-red-950/60 text-red-300 px-2 py-0.5 rounded">Alta Densidade</span>
+            </div>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Municípios como Luziânia, Valparaíso, Águas Lindas e Novo Gama. Marcado por <strong>migração pendular diária</strong> para Brasília, rápido crescimento demográfico desordenado e desafios históricos de infraestrutura e segurança pública.
+            </p>
+          </div>
+
+          <!-- Sul e Sudoeste -->
+          <div class="p-4 bg-tactical-950 rounded-xl border border-emerald-500/30 space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-emerald-400 font-black text-sm">SUL & SUDOESTE GOIANO</span>
+              <span class="text-[10px] bg-emerald-950/60 text-emerald-300 px-2 py-0.5 rounded">Motor Econômico</span>
+            </div>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Cidades como Rio Verde, Jataí, Itumbiara e Catalão. Polo do <strong>agronegócio de alta tecnologia</strong> (grãos, soja, milho, cana-de-açúcar, complexo carnes/laticínios). Apresenta os maiores índices de PIB per capita e IDH do Estado.
+            </p>
+          </div>
+
+          <!-- Nordeste Goiano / Vale do Paranã -->
+          <div class="p-4 bg-tactical-950 rounded-xl border border-amber-500/30 space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-amber-400 font-black text-sm">NORDESTE / VALE DO PARANÃ</span>
+              <span class="text-[10px] bg-amber-950/60 text-amber-300 px-2 py-0.5 rounded">Vulnerabilidade</span>
+            </div>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Historicamente chamado de "bolsão de pobreza" de Goiás. Menor densidade populacional, presença marcante de comunidades quilombolas (Kalungas em Cavalcante) e alvo de programas governamentais para redução de disparidades regionais.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 3. BIOMA CERRADO & HIDROGRAFIA DE GOIÁS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3">
+          <span class="text-xs font-mono font-bold text-emerald-400 uppercase">DOMÍNIO MORFOCLIMÁTICO</span>
+          <h4 class="text-white font-bold text-sm">O Bioma Cerrado (Savana Brasileira)</h4>
+          <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
+            <li>• <strong>Vegetação:</strong> Troncos retorcidos, casca grossa (cortiça) e raízes profundas (captação de lençol freático na seca).</li>
+            <li>• <strong>Solo:</strong> Latossolos avermelhados/amarelados, naturalmente ácidos e ricos em alumínio (correção feita com calagem).</li>
+            <li>• <strong>Clima:</strong> Tropical típico com duas estações bem definidas: verão chuvoso (outubro a março) e inverno seco e estiagem prolongada (maio a setembro).</li>
+          </ul>
+        </div>
+
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3">
+          <span class="text-xs font-mono font-bold text-sky-400 uppercase">REDE HIDROGRÁFICA</span>
+          <h4 class="text-white font-bold text-sm">As Grandes Bacias Hidrográficas em Goiás</h4>
+          <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
+            <li>• <strong>Bacia do Tocantins-Araguaia:</strong> Drena a porção Centro-Norte e Oeste do Estado. O Rio Araguaia é marco natural de divisa com Mato Grosso.</li>
+            <li>• <strong>Bacia do Paraná (Platina):</strong> Drena o Centro-Sul goiano, formada pelos Rios Paranaíba, Corumbá e Meia Ponte (abastecimento da Região Metropolitana de Goiânia).</li>
+            <li>• <strong>Bacia do São Francisco:</strong> Pequena fração no extremo leste goiano.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 6: PENAL & PENAL MILITAR ESQUEMATIZADO                    -->
+    <!-- ============================================================== -->
+    <section id="tabPenal" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-red-950/40 via-tactical-900 to-tactical-950 border border-red-500/30 rounded-2xl p-6">
+        <span class="text-xs font-bold text-red-400 uppercase tracking-widest font-mono">NÚCLEO PENAL MILITAR & COMUM</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Direito Penal & Penal Militar Esquematizado</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">Art. 9º CPM, Homicídio Doloso de Civil (Júri), Motim vs Revolta, Deserção e Crimes Funcionais.</p>
+      </div>
+
+      <!-- 1. ARTIGO 9º CPM (QUANDO É CRIME MILITAR?) -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-mono">Art. 9º, II CPM</span>
+          O Crime Militar Praticado por Militar da Ativa
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800">
+            <span class="text-amber-400 font-bold block mb-1">Alínea "a": Militar Ativa vs. Militar Ativa</span>
+            <p class="text-slate-300 leading-relaxed">
+              Praticado por militar da ativa contra militar da ativa. <strong>Pegadinha:</strong> Não importa se estão de folga, desarmados ou em trajes civis. Sendo ambos da ativa, o crime é <strong>militar</strong>!
+            </p>
+          </div>
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800">
+            <span class="text-amber-400 font-bold block mb-1">Alínea "b": Em Lugar Sujeito à Adm. Militar</span>
+            <p class="text-slate-300 leading-relaxed">
+              Militar da ativa em quartel, viatura ou repartição contra civil ou militar da reserva/reformado. O local atrai a competência castrense.
+            </p>
+          </div>
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800">
+            <span class="text-amber-400 font-bold block mb-1">Alínea "c": Militar em Serviço ou Missão</span>
+            <p class="text-slate-300 leading-relaxed">
+              Militar em serviço ou em razão de função operacional, mesmo que fora de área militar e mesmo contra vítima civil.
+            </p>
+          </div>
+          <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800">
+            <span class="text-amber-400 font-bold block mb-1">Alínea "e": Contra Patrimônio Militar</span>
+            <p class="text-slate-300 leading-relaxed">
+              Crime praticado em prejuízo da Fazenda Pública Militar (furto de arma da PM, dano qualificado a viatura policial).
+            </p>
+          </div>
+        </div>
+
+        <!-- Alerta Homicídio doloso de civil -->
+        <div class="bg-red-950/40 border-l-4 border-red-500 p-4 rounded-r-xl space-y-1">
+          <div class="text-red-400 font-bold text-xs sm:text-sm flex items-center gap-2">
+            <span>🚨</span> PEGADINHA CLÁSSICA: PM em serviço que mata civil dolosamente
+          </div>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+            • <strong>Quem Investiga?</strong> A Polícia Militar através de <strong>Inquérito Policial Militar (IPM)</strong>.
+            <br>• <strong>Quem Julga?</strong> O <strong>TRIBUNAL DO JÚRI (Justiça Comum)</strong>, por força do Art. 125, § 4º da CF e Art. 9º, p. único do CPM.
+            <br>• Se for <strong>CULPOSO</strong> (sem intenção), julga na <strong>Justiça Militar Estadual</strong>!
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. MOTIM VS REVOLTA (DIAGRAMA INTERATIVO) -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <div class="flex justify-between items-center border-b border-tactical-800 pb-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-400 text-xs font-mono">Art. 149 CPM</span>
+            Motim vs. Revolta (A Regra do Armamento)
+          </h3>
+          <div class="flex gap-2">
+            <button onclick="toggleMotimRevolta('motim')" id="btnMotimTab" class="px-3 py-1 bg-amber-500 text-black text-xs font-bold rounded">Motim</button>
+            <button onclick="toggleMotimRevolta('revolta')" id="btnRevoltaTab" class="px-3 py-1 bg-tactical-950 text-slate-300 text-xs font-bold rounded hover:bg-tactical-800">Revolta</button>
+          </div>
+        </div>
+
+        <div id="motimRevoltaCard" class="bg-tactical-950 p-5 rounded-xl border border-amber-500/30">
+          <div class="flex justify-between items-center mb-3">
+            <span id="mrTitle" class="text-base font-black text-amber-400">MOTIM (ART. 149 CPM)</span>
+            <span id="mrPena" class="text-xs bg-tactical-900 text-slate-300 px-2 py-1 rounded font-mono">Pena: Reclusão 4 a 8 anos</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+            <div class="p-3 bg-tactical-900 rounded-lg">
+              <span class="text-slate-400 block text-[11px] font-bold">Número de Agentes</span>
+              <strong class="text-white">Mínimo 2 militares</strong>
+              <p class="text-slate-500 text-[11px] mt-1">Concurso necessário.</p>
+            </div>
+            <div class="p-3 bg-tactical-900 rounded-lg">
+              <span class="text-slate-400 block text-[11px] font-bold">Porte de Armas</span>
+              <strong id="mrArmas" class="text-white">DESARMADOS (MÃOS LIMPAS)</strong>
+              <p class="text-slate-500 text-[11px] mt-1" id="mrArmasDesc">Nenhum militar empunha armas.</p>
+            </div>
+            <div class="p-3 bg-tactical-900 rounded-lg">
+              <span class="text-slate-400 block text-[11px] font-bold">Mnemônico Tático</span>
+              <strong id="mrMnem" class="text-amber-400">M = MÃOS LIMPAS</strong>
+              <p class="text-slate-500 text-[11px] mt-1">Sem armas = Motim.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. DESERÇÃO (8 DIAS) LINHA DO TEMPO -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-mono">Art. 187 CPM</span>
+          Deserção: A Linha do Tempo dos 8 Dias Ininterruptos
+        </h3>
+        
+        <div class="p-4 bg-tactical-950 rounded-xl border border-tactical-800 space-y-3">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="text-slate-400">Falta Inicial</span>
+            <span class="text-amber-400">2º ao 8º dia (Parte de Ausente)</span>
+            <span class="text-red-400">0h00 do 9º dia (CONSUMAÇÃO)</span>
+          </div>
+          <div class="h-3 w-full bg-tactical-800 rounded-full flex overflow-hidden">
+            <div class="w-[15%] bg-slate-600"></div>
+            <div class="w-[60%] bg-amber-500"></div>
+            <div class="w-[25%] bg-red-600"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-slate-300">
+            <div class="p-2.5 bg-tactical-900 rounded">
+              <strong class="text-white block mb-0.5">1. Ausência Simples:</strong>
+              Militar deixa de comparecer à unidade sem justificativa médica ou legal.
+            </div>
+            <div class="p-2.5 bg-tactical-900 rounded">
+              <strong class="text-amber-300 block mb-0.5">2. Parte de Ausente:</strong>
+              Lavra-se formalmente a ausência no 8º dia contínuo de falta.
+            </div>
+            <div class="p-2.5 bg-tactical-900 rounded">
+              <strong class="text-red-400 block mb-0.5">3. Consumação:</strong>
+              Passada a meia-noite do 8º para o 9º dia consecutivo, consuma-se a deserção.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. CRIMES FUNCIONAIS: CONCUSSÃO, CORRUPÇÃO, PREVARICAÇÃO E DESACATO -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white">Quadro dos Verbos Núcleos (Crimes contra a Administração)</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-tactical-950 text-slate-400 border-b border-tactical-800">
+                <th class="p-3">Crime</th>
+                <th class="p-3">Verbo Principal</th>
+                <th class="p-3">Gatilho de Prova</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-tactical-800 text-slate-300">
+              <tr>
+                <td class="p-3 font-bold text-white">Concussão (Art. 316 CP)</td>
+                <td class="p-3 text-amber-400 font-mono font-bold">EXIGIR</td>
+                <td class="p-3">O policial impõe ou constrange a vítima a pagar vantagem indevida.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold text-white">Corrupção Passiva (Art. 317 CP)</td>
+                <td class="p-3 text-sky-400 font-mono font-bold">SOLICITAR ou RECEBER</td>
+                <td class="p-3">O policial pede propina ou aceita oferta para deixar de cumprir seu dever.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold text-white">Prevaricação (Art. 319 CP)</td>
+                <td class="p-3 text-emerald-400 font-mono font-bold">RETARDAR / DEIXAR DE PRATICAR</td>
+                <td class="p-3">Age para satisfazer <strong class="text-white">interesse ou sentimento pessoal</strong> (ex: perdoar parente).</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold text-white">Desacato (Art. 331 CP)</td>
+                <td class="p-3 text-red-400 font-mono font-bold">DESACATAR</td>
+                <td class="p-3">Ofensa à função pública exercida pelo agente policial militar em serviço.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 7: PROCESSO PENAL (CPP VS CPPM & FLAGRANTE)                -->
+    <!-- ============================================================== -->
+    <section id="tabProcPenal" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-purple-950/40 via-tactical-900 to-tactical-950 border border-purple-500/30 rounded-2xl p-6">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-widest font-mono">DUELO DE PRAZOS & PRISÕES</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Processo Penal: Inquérito & Espécies de Flagrante</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">Comparação de prazos entre o Inquérito Comum (CPP) e o Inquérito Militar (CPPM) e espécies de prisão.</p>
+      </div>
+
+      <!-- 1. DUELO DE PRAZOS: IP (CPP) VS IPM (CPPM) -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-purple-500/20 border border-purple-500/40 text-purple-400 text-xs font-mono">Prazos de Inquérito</span>
+          CPP (Inquérito Civil) vs. CPPM (Inquérito Militar)
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-4 bg-tactical-950 rounded-xl border border-slate-800 space-y-3">
+            <span class="text-sky-400 font-bold block text-sm border-b border-tactical-800 pb-2">Inquérito Policial Comum (CPP)</span>
+            <div class="flex justify-between items-center p-2 bg-tactical-900 rounded">
+              <span>Indiciado PRESO:</span>
+              <strong class="text-amber-400 font-mono font-bold">10 DIAS (Improrrogáveis)</strong>
+            </div>
+            <div class="flex justify-between items-center p-2 bg-tactical-900 rounded">
+              <span>Indiciado SOLTO:</span>
+              <strong class="text-white font-mono font-bold">30 DIAS (Prorrogáveis)</strong>
+            </div>
+          </div>
+
+          <div class="p-4 bg-tactical-950 rounded-xl border border-purple-500/30 space-y-3">
+            <span class="text-purple-400 font-bold block text-sm border-b border-tactical-800 pb-2">Inquérito Policial Militar (CPPM - Art. 20)</span>
+            <div class="flex justify-between items-center p-2 bg-tactical-900 rounded">
+              <span>Indiciado PRESO:</span>
+              <strong class="text-amber-400 font-mono font-bold">20 DIAS (Ininterruptos)</strong>
+            </div>
+            <div class="flex justify-between items-center p-2 bg-tactical-900 rounded">
+              <span>Indiciado SOLTO:</span>
+              <strong class="text-white font-mono font-bold">40 DIAS (+ 20 Prorrogáveis)</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-3 bg-amber-950/20 border border-amber-500/30 rounded-lg text-xs text-amber-200">
+          <strong>Mnemônico de Prova:</strong> O prazo no militar é o DOBRO do comum para preso! (CPP Preso = 10 dias / CPPM Preso = 20 dias).
+        </div>
+      </div>
+
+      <!-- 2. ESPÉCIES DE FLAGRANTE (ART. 302 CPP) -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white">Espécies de Flagrante Delito</h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div class="p-3.5 bg-tactical-950 rounded-xl border border-tactical-800 space-y-1">
+            <span class="text-emerald-400 font-bold block text-xs uppercase">Flagrante Próprio</span>
+            <p class="text-slate-300">Está cometendo a infração ou acaba de cometê-la.</p>
+          </div>
+          <div class="p-3.5 bg-tactical-950 rounded-xl border border-tactical-800 space-y-1">
+            <span class="text-sky-400 font-bold block text-xs uppercase">Flagrante Impróprio</span>
+            <p class="text-slate-300">É <strong>perseguido logo após</strong> pela autoridade em situação de presunção de autoria.</p>
+          </div>
+          <div class="p-3.5 bg-tactical-950 rounded-xl border border-tactical-800 space-y-1">
+            <span class="text-amber-400 font-bold block text-xs uppercase">Flagrante Ficto</span>
+            <p class="text-slate-300">É <strong>encontrado logo depois</strong> com instrumentos, armas ou objetos do crime.</p>
+          </div>
+          <div class="p-3.5 bg-tactical-950 rounded-xl border border-red-500/30 space-y-1">
+            <span class="text-red-400 font-bold block text-xs uppercase">Flagrante Preparado</span>
+            <p class="text-slate-300">Súmula 145 STF: Flagrante induzido/provocado é <strong>CRIME IMPOSSÍVEL</strong> (prisão nula).</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 8: CONSTITUCIONAL POLICIAL (ART. 5º E ART. 144)           -->
+    <!-- ============================================================== -->
+    <section id="tabConst" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-blue-950/40 via-tactical-900 to-tactical-950 border border-blue-500/30 rounded-2xl p-6">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono">CF/88 NA PRÁTICA OPERACIONAL</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Direito Constitucional Policial</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">Inviolabilidade Domiciliar, Acesso ao Celular na Abordagem, Segurança Pública e Vedações Militares.</p>
+      </div>
+
+      <!-- 1. INVIOLABILIDADE DOMICILIAR (ART. 5º, XI) -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-blue-500/20 border border-blue-500/40 text-blue-400 text-xs font-mono">Art. 5º, XI CF</span>
+          A Casa como Asilo Inviolável: Regra do Dia vs. Noite
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="bg-emerald-950/20 border border-emerald-500/30 p-4 rounded-xl space-y-2">
+            <span class="text-emerald-400 font-bold uppercase text-xs block">A Qualquer Hora (Dia ou Noite):</span>
+            <ul class="text-slate-200 space-y-1">
+              <li>• Flagrante delito (crime em andamento ou permanente com fundadas razões)</li>
+              <li>• Prestar socorro imediato</li>
+              <li>• Em caso de desastre (incêndio, desabamento)</li>
+            </ul>
+          </div>
+
+          <div class="bg-amber-950/20 border border-amber-500/30 p-4 rounded-xl space-y-2">
+            <span class="text-amber-400 font-bold uppercase text-xs block">Exclusivamente Durante o Dia:</span>
+            <ul class="text-slate-200 space-y-1">
+              <li>• Por determinação judicial (Mandado de busca e apreensão)</li>
+            </ul>
+            <p class="text-red-400 text-[11px] pt-1">
+              A invasão com mandado após às 21h ou antes das 5h constitui crime na Lei de Abuso de Autoridade!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CELULAR NA ABORDAGEM & ARTIGO 144 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3">
+          <span class="text-xs font-mono font-bold text-red-400">JURISPRUDÊNCIA STF / STJ</span>
+          <h4 class="text-white font-bold text-sm">Acesso a Mensagens / WhatsApp na Abordagem</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            O policial militar <strong>NÃO PODE</strong> exigir que o cidadão desbloqueie o aparelho celular para averiguação de mensagens ou fotos sem autorização judicial ou consentimento livre por escrito. Provas colhidas dessa forma são <strong>totalmente nulas</strong> por violação ao Art. 5º, XII da CF.
+          </p>
+        </div>
+
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3">
+          <span class="text-xs font-mono font-bold text-amber-400">ART. 142 & 144 DA CF/88</span>
+          <h4 class="text-white font-bold text-sm">Vedações Constitucionais Categóricas ao Militar</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Ao policial militar da ativa são expressamente <strong>proibidos</strong>:
+            <br>1. O direito de <strong>greve</strong>;
+            <br>2. A <strong>sindicalização</strong>;
+            <br>3. A <strong>filiação a partidos políticos</strong> enquanto estiver em serviço ativo.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 9: ESTATUTO PMGO, REGULAMENTO & LEIS ESPECIAIS             -->
+    <!-- ============================================================== -->
+    <section id="tabEstatuto" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-emerald-950/40 via-tactical-900 to-tactical-950 border border-emerald-500/30 rounded-2xl p-6">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono">LEGISLAÇÃO GOIANA & EXTRAVAGANTE</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Estatuto PMGO, Regulamento & Leis Especiais</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">Lei Estadual 8.033/1975, Regulamento Disciplinar 4.717/96, Abuso de Autoridade (13.869) e Algemas (SV 11).</p>
+      </div>
+
+      <!-- 1. POSTO VS GRADUAÇÃO & SITUAÇÕES ESPECIAIS -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-mono">Lei 8.033/75</span>
+          Estatuto da PMGO: Quem confere Postos e Graduações?
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-4 bg-tactical-950 rounded-xl border border-tactical-800">
+            <span class="text-emerald-400 font-bold block mb-1">POSTOS (Oficiais):</span>
+            <p class="text-slate-300">
+              Grau hierárquico dos Oficiais, conferido por <strong>ato do Governador do Estado de Goiás</strong> e confirmado em Carta Patente.
+            </p>
+          </div>
+          <div class="p-4 bg-tactical-950 rounded-xl border border-tactical-800">
+            <span class="text-sky-400 font-bold block mb-1">GRADUAÇÕES (Praças):</span>
+            <p class="text-slate-300">
+              Grau hierárquico das Praças (Soldado até Subtenente), conferido por <strong>ato do Comandante-Geral da PMGO</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-2">
+          <div class="p-3 bg-tactical-950 rounded-lg">
+            <strong class="text-white block mb-0.5">Agregação:</strong>
+            O militar da ativa afasta-se temporariamente da escala hierárquica por motivo de saúde ou política.
+          </div>
+          <div class="p-3 bg-tactical-950 rounded-lg">
+            <strong class="text-white block mb-0.5">Reversão:</strong>
+            Ato pelo qual o militar agregado retorna ao respectivo quadro após cessado o motivo.
+          </div>
+          <div class="p-3 bg-tactical-950 rounded-lg">
+            <strong class="text-white block mb-0.5">Extravio:</strong>
+            Militar desaparecido por mais de 30 dias contínuos em serviço ou missão.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. REGULAMENTO DISCIPLINAR & ABUSO DE AUTORIDADE -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        
+        <!-- Decreto 4.717/96 -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3">
+          <span class="text-xs font-mono font-bold text-amber-400">DECRETO ESTADUAL Nº 4.717/96</span>
+          <h4 class="text-white font-bold text-sm">Escala de Sanções Disciplinares da PMGO</h4>
+          <ul class="text-xs text-slate-300 space-y-1.5">
+            <li>1. <strong>Advertência:</strong> Admoestação verbal reservada.</li>
+            <li>2. <strong>Repreensão:</strong> Publicada em boletim militar.</li>
+            <li>3. <strong>Detenção:</strong> Cerceamento parcial sem isolamento.</li>
+            <li>4. <strong>Prisão Disciplinar:</strong> Em local próprio de quartel.</li>
+            <li>5. <strong>Exclusão a Bem da Disciplina / Demissão:</strong> Perda da farda.</li>
+          </ul>
+        </div>
+
+        <!-- Abuso de Autoridade & Algemas -->
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-5 space-y-3">
+          <span class="text-xs font-mono font-bold text-red-400">LEI 13.869/19 & SÚMULA VINCULANTE 11</span>
+          <h4 class="text-white font-bold text-sm">Dolo Específico & Uso Legal de Algemas</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            • <strong>Dolo Específico:</strong> Só há crime de abuso de autoridade se o agente agir para prejudicar outrem, beneficiar-se ou por mero capricho pessoal. Não há crime culposo!
+            <br>• <strong>Algemas (SV 11 STF):</strong> Só é lícito em casos de <strong>resistência, perigo à integridade física</strong> ou <strong>fundado receio de fuga</strong>, com justificativa obrigatória por escrito.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 10: FLASHCARDS 3D & CADERNO DE ERROS                       -->
+    <!-- ============================================================== -->
+    <section id="tabFlashcards" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-amber-950/40 via-tactical-900 to-tactical-950 border border-amber-500/30 rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">REPETIÇÃO ESPAÇADA & MEMORIZAÇÃO</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">Flashcards 3D & Caderno de Erros</h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-1">Toque na carta para virar e ver a resposta. Filtre os itens que você errou para revisão focada.</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="filterFlashcards('all')" id="btnFcAll" class="px-3 py-1.5 bg-amber-500 text-black text-xs font-bold rounded-lg transition">Todas as Cartas</button>
+          <button onclick="filterFlashcards('errors')" id="btnFcErrors" class="px-3 py-1.5 bg-tactical-950 border border-red-500/40 text-red-400 text-xs font-bold rounded-lg transition hover:bg-red-950/30">Caderno de Erros (<span id="fcErrorsCount">0</span>)</button>
+          <button onclick="filterFlashcards('due')" id="btnFcDue" class="px-3 py-1.5 bg-tactical-950 border border-tactical-800 text-slate-400 text-xs font-bold rounded-lg transition hover:bg-tactical-800">Revisar hoje (<span id="fcDueCount">0</span>)</button>
+        </div>
+      </div>
+
+      <!-- Grid de Flashcards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="flashcardsContainer">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 11: SIMULADOR DE QUESTÕES ESTILO INSTITUTO AOCP            -->
+    <!-- ============================================================== -->
+    <section id="tabQuiz" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-sky-950/40 via-tactical-900 to-tactical-950 border border-sky-500/30 rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-mono">TREINAMENTO REAL DE PROVA</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">Simulador Padrão AOCP</h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-1">Resolução comentada com fundamentação direta na letra da lei.</p>
+        </div>
+        <div class="bg-tactical-950 px-4 py-2 rounded-xl border border-tactical-800 flex items-center gap-4 shrink-0">
+          <div>
+            <span class="text-[10px] text-slate-400 block font-bold">Acertos</span>
+            <span id="quizScoreNum" class="text-base font-bold text-emerald-400 font-mono">0</span>
+          </div>
+          <div class="h-6 w-px bg-tactical-800"></div>
+          <div>
+            <span class="text-[10px] text-slate-400 block font-bold">Progresso</span>
+            <span id="quizProgressNum" class="text-base font-bold text-slate-200 font-mono">0/10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 sm:items-end">
+        <div class="flex-1">
+          <label for="quizSubjectSelect" class="text-[10px] font-bold text-slate-400 uppercase block mb-1">Disciplina</label>
+          <select id="quizSubjectSelect" onchange="startQuiz()" class="w-full bg-tactical-950 border border-tactical-800 rounded-lg p-2 text-xs text-white"><option value="all">Todas as disciplinas</option></select>
+        </div>
+        <button type="button" onclick="startQuiz()" class="px-3 py-2 bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold rounded-lg transition">🔀 Novo simulado embaralhado</button>
+      </div>
+      <div id="quizStatsBox" class="bg-tactical-900 border border-tactical-800 rounded-2xl p-4 text-xs text-slate-400"></div>
+
+      <!-- Card da Questão -->
+      <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-5">
+        <div class="flex justify-between items-center border-b border-tactical-800 pb-3">
+          <span id="quizSubjectBadge" class="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded border border-amber-400/20">
+            Disciplina
+          </span>
+          <span id="quizNumberText" class="text-xs text-slate-400 font-bold font-mono">Questão 01 de 10</span>
+        </div>
+
+        <p id="quizQuestionBody" class="text-sm sm:text-base text-slate-100 font-medium leading-relaxed">
+          Carregando enunciado...
+        </p>
+
+        <div id="quizOptionsList" class="space-y-3">
+          <!-- Gerado via JS -->
+        </div>
+
+        <!-- Comentário / Justificativa -->
+        <div id="quizFeedbackBox" role="status" aria-live="polite" class="hidden rounded-xl p-4 border text-xs sm:text-sm space-y-1.5">
+          <div id="quizFeedbackTitle" class="font-bold"></div>
+          <p id="quizFeedbackText" class="text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="prevQuizQuestion()" id="btnQuizPrev" class="px-4 py-2 bg-tactical-800 hover:bg-tactical-700 text-slate-300 text-xs font-bold rounded-lg transition disabled:opacity-40" disabled>
+            ← Anterior
+          </button>
+          <button onclick="nextQuizQuestion()" id="btnQuizNext" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-black text-xs font-black rounded-lg transition shadow-md shadow-amber-500/20">
+            Próxima Questão →
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ABA 12: CALCULADORA TAF OFICIAL PMGO & PLANILHA 8 SEMANAS      -->
+    <!-- ============================================================== -->
+    <section id="tabTaf" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-emerald-950/40 via-tactical-900 to-tactical-950 border border-emerald-500/30 rounded-2xl p-6">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono">TESTE DE APTIDÃO FÍSICA</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Calculadora de TAF PMGO — Soldado (Edital 2022)</h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">Pontuação conforme as Tabelas 13.3 e 13.4 do Edital nº 002/2022 (SEAD/AOCP). Não há edital novo publicado: confira o próximo quando sair.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4">
+          <h3 class="text-base font-bold text-white border-b border-tactical-800 pb-2">Seus Índices</h3>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="setTafSex('M')" id="btnSexM" class="py-2 text-xs font-bold rounded-lg bg-amber-500 text-black transition">Masculino</button>
+            <button onclick="setTafSex('F')" id="btnSexF" class="py-2 text-xs font-bold rounded-lg bg-tactical-950 text-slate-300 border border-tactical-800 transition">Feminino</button>
+          </div>
+          <div id="tafInputs" class="space-y-4"></div>
+          <label class="flex items-center gap-2 text-xs text-slate-300"><input type="checkbox" id="tafNado" checked onchange="calculateTaf()" class="accent-amber-500"> Nado 25 m livre (sem apoiar na borda ou raia)</label>
+        </div>
+        <div id="tafResults" class="lg:col-span-2 bg-tactical-900 border border-tactical-800 rounded-2xl p-6 space-y-4" aria-live="polite"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= SEÇÃO OCULTA: EXPORTAÇÃO LIMPA PARA IMPRESSÃO / PDF ================= -->
+  <div id="printReportSection" class="hidden p-8 max-w-4xl mx-auto space-y-6 text-black bg-white">
+    <div class="border-b-2 border-black pb-4 text-center">
+      <h1 class="text-2xl font-black uppercase">PMGO • Caderno de Erros & Vade Mecum das Vésperas</h1>
+      <p class="text-sm">Relatório Tático de Revisão Rápida — Soldado & Cadete da Polícia Militar de Goiás</p>
+      <p class="text-xs text-gray-600 mt-1" id="printDateGenerated"></p>
+    </div>
+
+    <!-- Resumo dos Erros em Flashcards -->
+    <div class="space-y-3">
+      <h2 class="text-lg font-bold border-b border-gray-400 pb-1 uppercase">1. Caderno de Erros (Tópicos Sinalizados para Revisão)</h2>
+      <div id="printErrorsList" class="space-y-2 text-sm">
+        <!-- Injetado dinamicamente via JS -->
+      </div>
+    </div>
+
+    <!-- Os 8 Artigos Decisivos das Vésperas -->
+    <div class="space-y-3 pt-4">
+      <h2 class="text-lg font-bold border-b border-gray-400 pb-1 uppercase">2. Vade Mecum Ultracensurado (Os 8 Dispositivos Decisivos)</h2>
+      <div class="text-xs space-y-2">
+        <p><strong>Art. 125, § 4º CF:</strong> Homicídio doloso de civil praticado por militar em serviço é investigado via IPM, mas julgado no TRIBUNAL DO JÚRI.</p>
+        <p><strong>Art. 149 CPM:</strong> Motim (mãos limpas, sem armas) vs. Revolta (com armas). Concurso de 2 ou mais militares em ambos.</p>
+        <p><strong>Art. 187 CPM:</strong> Deserção consuma-se na 1ª hora do 9º dia consecutivo de ausência injustificada (superior a 8 dias).</p>
+        <p><strong>Art. 5º, XI CF:</strong> Mandado de busca domiciliar: somente durante o dia. Flagrante, socorro ou desastre: dia e noite.</p>
+        <p><strong>Art. 142/144 CF:</strong> É terminantemente proibida a greve, a sindicalização e a filiação partidária ao militar da ativa.</p>
+        <p><strong>Poderes e Atos:</strong> Requisitos = COMFIFORM. Atributos = PATI (Presunção, Autoexecutoriedade, Tipicidade, Imperatividade).</p>
+        <p><strong>Lei 8.033/75 (PMGO):</strong> Postos conferidos pelo Governador; Graduações conferidas pelo Comandante-Geral.</p>
+        <p><strong>Súmula Vinculante 11:</strong> Algemas lícitas apenas no PRFD (Perigo, Resistência, Fuga, Desobediência), com justificativa por escrito.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: VADE MECUM DAS VÉSPERAS ================= -->
+  <div id="modalVesperas" class="fixed inset-0 z-50 bg-tactical-950/85 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-tactical-900 border border-amber-500/40 rounded-2xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      
+      <div class="flex items-center justify-between border-b border-tactical-800 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+          <h3 class="text-lg font-black text-white">Vade Mecum das Vésperas: 8 Artigos Decisivos</h3>
+        </div>
+        <button onclick="toggleModal('modalVesperas')" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm text-slate-200">
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">1. Homicídio Doloso de Civil por Militar em Serviço:</strong>
+          Investigação da PM via <strong>IPM</strong>, mas competência absoluta do <strong>TRIBUNAL DO JÚRI</strong> (Art. 125, § 4º da CF).
+        </div>
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">2. Motim vs. Revolta (Art. 149 CPM):</strong>
+          Ambos com no mínimo 2 militares. Motim = <strong>Desarmados</strong>. Revolta = <strong>Armados</strong>.
+        </div>
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">3. Deserção (Art. 187 CPM):</strong>
+          Ausência injustificada por <strong>mais de 8 dias</strong>. Consuma-se na primeira hora do 9º dia.
+        </div>
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">4. Inviolabilidade Domiciliar (Art. 5º, XI CF):</strong>
+          Mandado judicial apenas <strong>DURANTE O DIA</strong>. Flagrante, socorro ou desastre: a qualquer hora.
+        </div>
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">5. Vedações Constitucionais ao Militar:</strong>
+          Proibição taxativa de <strong>greve</strong>, <strong>sindicalização</strong> e <strong>filiação partidária</strong> na ativa.
+        </div>
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">6. Requisitos vs. Atributos dos Atos:</strong>
+          Requisitos = <strong>COMFIFORM</strong>. Atributos = <strong>PATI</strong> (Presunção, Autoexecutoriedade, Tipicidade, Imperatividade).
+        </div>
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">7. Abuso de Autoridade (Lei 13.869/19):</strong>
+          Exige <strong>dolo específico</strong> (prejudicar, beneficiar ou mero capricho). Não há modalidade culposa.
+        </div>
+        <div class="p-3 bg-tactical-950 rounded-lg border border-tactical-800">
+          <strong class="text-amber-400 block mb-0.5">8. Posto vs. Graduação na PMGO (Lei 8.033/75):</strong>
+          Postos (Oficiais) concedidos pelo <strong>Governador</strong>; Graduações (Praças) concedidas pelo <strong>Comandante-Geral</strong>.
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-tactical-800 flex justify-end">
+        <button onclick="toggleModal('modalVesperas')" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs rounded-lg transition">
+          Fechar Revisão
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-tactical-800 bg-tactical-950 py-6 mt-10 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        <span class="font-bold text-slate-400">GUIA TÁTICO PMGO</span> • Preparatório Intensivo Soldado & Cadete
+      </div>
+      <div>
+        Disciplina e foco na aprovação. A farda é questão de tempo.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT BLINDADO (ZERO TELA BRANCA) ================= -->
+  <!-- ===== DADOS DE CONTEÚDO (edite aqui: casos, flashcards e questões) ===== -->
+  <script id="dados-conteudo">
+    const streetCasesDataset = [
+      {
+        id: 'c1',
+        title: 'Caso 1: A "Atitude Suspeita" e o Nervosismo',
+        brief: 'Busca veicular sem mandado em blitz noturna.',
+        narrative: 'A guarnição do Sargento Souza avista um veículo popular em via pública de Goiânia às 23h. O condutor olha para a viatura e aparenta nervosismo excessivo. Não há denúncia de crime em andamento nem volume visível de arma. A guarnição intercepta o veículo para revista pessoal e veicular.',
+        question: 'Segundo o entendimento pacífico do Superior Tribunal de Justiça (HC 598.051/SP e RHC 158.580/BA), a conduta da guarnição:',
+        options: [
+          { text: 'É plenamente legítima, pois o nervosismo noturno em área urbana configura fundada suspeita automática para busca veicular.', correct: false },
+          { text: 'É ilegal, pois o mero nervosismo ou atitude genérica, desprovidos de elementos fáticos concretos prévios, NÃO autorizam a revista pessoal/veicular.', correct: true },
+          { text: 'Só seria ilegal se o condutor fosse advogado com carteira da OAB.', correct: false },
+          { text: 'É válida desde que os policiais encontrem drogas ou armas no porta-malas.', correct: false }
+        ],
+        verdict: 'FUNDAMENTAÇÃO STJ: A 5ª e a 6ª Turmas do STJ pacificaram que a busca pessoal e veicular (Art. 240 e 244 do CPP) exige JUSTA CAUSA baseada em dados objetivos. Mero nervosismo ou intuição policial não legitimam a revista. Se for encontrada arma sem justa causa prévia, a prova é inteiramente nula por contaminação (Art. 157 CPP).'
+      },
+      {
+        id: 'c2',
+        title: 'Caso 2: Perseguição & Entrada em Domicílio',
+        brief: 'Suspeito corre para dentro de residência.',
+        narrative: 'Durante patrulhamento em Anápolis, um indivíduo avista a viatura e corre para dentro de uma residência fechando o portão. Os policiais invadem a casa sem mandado judicial e encontram 200g de cocaína sobre a mesa da sala.',
+        question: 'À luz do Tema 280 de Repercussão Geral do Supremo Tribunal Federal, essa apreensão:',
+        options: [
+          { text: 'É totalmente lícita, pois o crime de tráfico é permanente e a descoberta da droga supriu a ausência do mandado.', correct: false },
+          { text: 'É ilícita, pois a simples fuga para o domicílio desacompanhada de diligências prévias ou fundadas razões não autoriza a violação do asilo inviolável.', correct: true },
+          { text: 'Seria válida apenas se a entrada tivesse ocorrido durante o dia.', correct: false },
+          { text: 'É válida se confirmada por termo assinado pelo morador após a invasão.', correct: false }
+        ],
+        verdict: 'FUNDAMENTAÇÃO STF (Tema 280): A entrada forçada em domicílio sem mandado só é lícita quando amparada em fundadas razões prévias. O STJ e o STF afirmam categoricamente que "a simples fuga desprovida de prévia investigação não autoriza a invasão". O encontro posterior de entorpecente NÃO convalida o vício originário.'
+      },
+      {
+        id: 'c3',
+        title: 'Caso 3: Menor em Flagrante e Uso de Algemas',
+        brief: 'Adolescente apreendido por roubo com faca.',
+        narrative: 'Um adolescente de 16 anos é flagrado em Goiânia logo após roubar o celular de uma vítima utilizando uma faca peixeira. Ao receber voz de apreensão, ele obedece passivamente e coloca as mãos para trás, sem esboçar resistência física ou tentativa de fuga.',
+        question: 'Para algemar o adolescente nesse momento, a guarnição policial:',
+        options: [
+          { text: 'Pode algemar compulsoriamente, pois a gravidade do crime de roubo anula as restrições da Súmula Vinculante 11.', correct: false },
+          { text: 'Só pode algemar se houver resistência, fundado perigo à integridade ou receio de fuga, justificando expressamente a necessidade no boletim de ocorrência.', correct: true },
+          { text: 'É terminantemente proibida de algemar menores de idade sob qualquer pretexto pelo ECA.', correct: false },
+          { text: 'Pode algemar sem prestar nenhuma justificativa, pois o ECA não se aplica a atos infracionais graves.', correct: false }
+        ],
+        verdict: 'FUNDAMENTAÇÃO SV 11 DO STF: O uso de algemas é medida EXCEPCIONAL. A Súmula Vinculante 11 veda o uso automático de algemas decorrente da mera natureza da infração. Se o conduzido não oferece resistência nem perigo físico, a utilização exige fundamentação escrita idônea, sob pena de responsabilidade disciplinar, civil e nulidade.'
+      },
+      {
+        id: 'c4',
+        title: 'Caso 4: Celular Apreendido na Abordagem',
+        brief: 'Acesso a mensagens de WhatsApp durante a busca.',
+        narrative: 'Após fundada suspeita e apreensão legal de arma de fogo na cintura de um suspeito, o militar arrecada o smartphone do indivíduo e exige a senha, passando a ler as conversas do aplicativo WhatsApp para descobrir o fornecedor do armamento.',
+        question: 'A conduta do policial militar que acessa as mensagens sem autorização judicial:',
+        options: [
+          { text: 'É plenamente legal, pois o aparelho celular apreendido em flagrante perde a proteção do sigilo de dados.', correct: false },
+          { text: 'Viola a garantia constitucional do sigilo das comunicações (Art. 5º, XII CF), tornando imprestáveis as provas obtidas por esse meio.', correct: true },
+          { text: 'É permitida pelo Código de Processo Penal Militar sem necessidade de mandado judicial.', correct: false },
+          { text: 'Só seria ilícita se a conversa fosse com o advogado do suspeito.', correct: false }
+        ],
+        verdict: 'JURISPRUDÊNCIA PACÍFICA DO STJ E STF: O acesso a dados de aparelhos celulares (mensagens, fotos, WhatsApp) depende de PRÉVIA AUTORIZAÇÃO JUDICIAL. O flagrante delito autoriza a apreensão do aparelho para perícia, mas NUNCA a devassa direta de conversas pela autoridade policial sem ordem do juiz competente.'
+      }
+    ];
+
+    const flashcardsData = [
+      {
+        id: 1,
+        frontTitle: 'DIREITO PENAL MILITAR',
+        question: 'Militar da ativa em trajes civis, de folga, agride militar da ativa também de folga em festa particular. O crime é comum ou militar?',
+        answer: 'CRIME MILITAR! Aplica-se o Art. 9º, II, "a" do CPM. Militar da ativa contra militar da mesma situação sempre atrai a competência castrense, independentemente do local ou vestimenta.',
+        status: 'pending'
+      },
+      {
+        id: 2,
+        frontTitle: 'DIREITO PENAL MILITAR',
+        question: 'Qual a exata diferença entre o crime de Motim e o de Revolta (Art. 149 do CPM)?',
+        answer: 'O PORTE DE ARMAS! Em ambos exige-se a reunião de no mínimo 2 militares. Se estiverem desarmados (mãos limpas) = MOTIM. Se algum estiver armado com a ciência dos demais = REVOLTA.',
+        status: 'pending'
+      },
+      {
+        id: 3,
+        frontTitle: 'PROCESSO PENAL (DUELO DE PRAZOS)',
+        question: 'Qual o prazo de conclusão do Inquérito com indiciado PRESO no CPP e no CPPM?',
+        answer: 'No CPP (Comum) = 10 DIAS (improrrogáveis). No CPPM (Militar - Art. 20) = 20 DIAS (ininterruptos). No militar é o dobro!',
+        status: 'pending'
+      },
+      {
+        id: 4,
+        frontTitle: 'DIREITO CONSTITUCIONAL',
+        question: 'Cumprimento de Mandado Judicial de busca e apreensão domiciliar pode ser realizado no período noturno?',
+        answer: 'NÃO! O Art. 5º, XI da CF autoriza mandado judicial estritamente DURANTE O DIA. A violação antes das 5h ou após às 21h configura crime na Lei de Abuso de Autoridade.',
+        status: 'pending'
+      },
+      {
+        id: 5,
+        frontTitle: 'DIREITO CONSTITUCIONAL',
+        question: 'Policial militar da ativa pode se filiar a partido político ou participar de greve funcional?',
+        answer: 'NÃO! O Art. 142, § 3º, IV e V da CF/88 veda expressamente a sindicalização, o direito de greve e a filiação partidária ao militar enquanto em atividade.',
+        status: 'pending'
+      },
+      {
+        id: 6,
+        frontTitle: 'ESTATUTO PMGO (LEI 8.033/75)',
+        question: 'Quem confere os POSTOS dos Oficiais e as GRADUAÇÕES das Praças na Polícia Militar de Goiás?',
+        answer: 'Postos são conferidos pelo GOVERNADOR DO ESTADO (carta patente). Graduações são conferidas por ato do COMANDANTE-GERAL DA PMGO.',
+        status: 'pending'
+      },
+      { id: 101, frontTitle: 'DIREITO PENAL MILITAR', revisar: true, status: 'pending',
+        question: 'Qual a diferença básica entre Deserção (art. 187 CPM) e Abandono de Posto (art. 195 CPM)?',
+        answer: 'DESERÇÃO: ausentar-se, sem licença, da unidade em que serve ou do lugar onde deve permanecer, por MAIS DE OITO DIAS. ABANDONO DE POSTO: deixar, sem ordem superior, o posto ou lugar de serviço designado, ou o serviço que lhe cumpria, ANTES DE TERMINÁ-LO (sem prazo mínimo).' },
+      { id: 102, frontTitle: 'CONSTITUCIONAL', revisar: true, status: 'pending',
+        question: 'O que a CF/88 (art. 144, § 5º) atribui às polícias militares?',
+        answer: 'A POLÍCIA OSTENSIVA e a PRESERVAÇÃO DA ORDEM PÚBLICA. Polícia judiciária e apuração de infrações penais comuns cabem, em regra, às polícias civis (§ 4º).' },
+      { id: 103, frontTitle: 'CONSTITUCIONAL', revisar: true, status: 'pending',
+        question: 'Quais direitos o militar NÃO pode exercer, segundo a CF/88?',
+        answer: 'SINDICALIZAÇÃO e GREVE (art. 142, § 3º, IV, aplicável aos militares estaduais pelo art. 42, § 1º). Também não pode estar filiado a partido político enquanto em serviço ativo.' },
+      { id: 104, frontTitle: 'SÚMULAS / STF', revisar: true, status: 'pending',
+        question: 'Quando o uso de algemas é lícito, segundo a Súmula Vinculante 11?',
+        answer: 'Só em caso de RESISTÊNCIA e FUNDADO RECEIO DE FUGA ou de perigo à integridade física própria ou alheia, com a excepcionalidade JUSTIFICADA POR ESCRITO. Sem isso: responsabilidade disciplinar, civil e penal do agente e nulidade do ato.' },
+      { id: 105, frontTitle: 'PROCESSO PENAL', revisar: true, status: 'pending',
+        question: 'Domicílio: em que situações o agente público pode entrar sem mandado (art. 5º, XI, CF) e o que diz o Tema 280/STF?',
+        answer: 'A QUALQUER HORA: flagrante delito, desastre ou para prestar socorro. Com ordem judicial: só de DIA. Tema 280: a entrada forçada é lícita se amparada em FUNDADAS RAZÕES, justificadas depois, de que há flagrante delito no interior.' },
+      { id: 106, frontTitle: 'PROCESSO PENAL', revisar: true, status: 'pending',
+        question: 'Como distinguir flagrante próprio, impróprio e presumido (art. 302 CPP)?',
+        answer: 'PRÓPRIO: está cometendo ou acaba de cometer. IMPRÓPRIO (quase flagrante): é PERSEGUIDO logo após, em situação que faça presumir ser autor. PRESUMIDO (ficto): é ENCONTRADO logo depois com instrumentos, armas, objetos ou papéis que façam presumir ser autor.' },
+      { id: 107, frontTitle: 'ADMINISTRATIVO', revisar: true, status: 'pending',
+        question: 'Quais são os princípios expressos da Administração Pública no art. 37, caput, da CF/88?',
+        answer: 'LEGALIDADE, IMPESSOALIDADE, MORALIDADE, PUBLICIDADE e EFICIÊNCIA (LIMPE).' },
+      { id: 108, frontTitle: 'ADMINISTRATIVO', revisar: true, status: 'pending',
+        question: 'Qual a diferença entre imperatividade e autoexecutoriedade dos atos administrativos?',
+        answer: 'IMPERATIVIDADE: a Administração impõe obrigações unilateralmente, independentemente da concordância do particular. AUTOEXECUTORIEDADE: a Administração executa a própria decisão diretamente, SEM prévia autorização judicial.' }
+    ];
+
+    const quizDataset = [
+      {
+        subject: 'Direito Penal Militar',
+        question: 'Dois soldados da Polícia Militar de Goiás, em serviço de radiopatrulhamento e devidamente fardados e armados, recusam-se conjuntamente a cumprir determinação de superior hierárquico consistente em realizar patrulhamento em determinada praça pública. Diante do caso concreto, os militares cometeram o crime de:',
+        options: [
+          'Insubordinação simples.',
+          'Motim (Art. 149 do CPM).',
+          'Revolta (Art. 149, parágrafo único do CPM).',
+          'Desobediência a ordem legal militar.'
+        ],
+        correct: 2,
+        feedback: 'GABARITO: C (Revolta). O Art. 149 do CPM define o Motim pela reunião de dois ou mais militares para desobedecer a ordem de superior. Havendo emprego ou porte de armamento pelos militares (como na questão, fardados e armados em viatura), o crime qualifica-se como REVOLTA (parágrafo único).'
+      },
+      {
+        subject: 'Processo Penal Militar',
+        question: 'Policial militar do Estado de Goiás, de folga e em trajes civis, durante discussão de trânsito em Goiânia, efetua disparo doloso de arma de fogo e mata o condutor civil do outro veículo. De acordo com a Constituição Federal (Art. 125, § 4º) e a Lei 13.491/2017:',
+        options: [
+          'A apuração dar-se-á por Inquérito Policial Militar e o julgamento será perante o Tribunal do Júri (Justiça Comum).',
+          'A apuração e o julgamento serão ambos de competência exclusiva da Justiça Militar Estadual.',
+          'O julgamento será perante a Auditoria Militar de Goiânia em razão do porte funcional da arma.',
+          'O Tribunal de Justiça Militar será o órgão competente apenas se o réu for oficial.'
+        ],
+        correct: 0,
+        feedback: 'GABARITO: A. Tratando-se de crime doloso contra a vida cometido por militar contra civil, a competência para julgamento é do TRIBUNAL DO JÚRI (Justiça Comum), sendo a investigação preliminar instaurada pela Polícia Militar via Inquérito Policial Militar (IPM).'
+      },
+      {
+        subject: 'Direito Constitucional',
+        question: 'A respeito da segurança pública na Constituição Federal de 1988 (Art. 144), assinale a alternativa juridicamente correta:',
+        options: [
+          'As polícias militares e os corpos de bombeiros militares são forças auxiliares e reserva do Exército.',
+          'O direito de greve é assegurado aos policiais militares mediante autorização do Comandante-Geral.',
+          'As Guardas Municipais possuem a competência privativa de exercer as funções de polícia judiciária.',
+          'O policial militar da ativa com mais de 10 anos de serviço que se candidatar a cargo eletivo continuará no serviço ativo compulsoriamente.'
+        ],
+        correct: 0,
+        feedback: 'GABARITO: A. O Art. 144, § 6º da CF/88 preconiza que as polícias militares e os corpos de bombeiros militares subordinam-se aos Governadores de Estado e são FORÇAS AUXILIARES E RESERVA DO EXÉRCITO. O direito de greve é terminantemente proibido (Art. 142).'
+      },
+      {
+        subject: 'Legislação Específica PMGO',
+        question: 'De acordo com a Lei Estadual nº 8.033/1975 (Estatuto dos Policiais Militares de Goiás), considera-se desaparecido o militar que, no desempenho de qualquer serviço ou missão:',
+        options: [
+          'Deixar de comparecer por mais de 8 dias consecutivos ao quartel.',
+          'Deixar de comparecer por mais de 24 horas consecutivas sem ordem do superior.',
+          'Tiver paradeiro ignorado por mais de 8 dias, e extraviado se permanecer desaparecido por mais de 30 dias.',
+          'Ausentar-se por mais de 48 horas da sede de seu batalhão.'
+        ],
+        correct: 2,
+        feedback: 'GABARITO: C. Na sistemática da Lei 8.033/75, é considerado desaparecido o PM cujo paradeiro for ignorado por mais de 8 dias; persistindo o paradeiro ignorado por mais de 30 dias consecutivos, será considerado oficialmente extraviado.'
+      },
+      { subject: 'Direito Constitucional', revisar: true,
+        question: 'Nos termos do art. 144 da Constituição Federal, às polícias militares compete:',
+        options: ['Polícia judiciária e apuração de infrações penais comuns.', 'Polícia ostensiva e preservação da ordem pública.', 'Polícia marítima, aeroportuária e de fronteiras.', 'Patrulhamento ostensivo das ferrovias federais.'],
+        correct: 1,
+        feedback: 'GABARITO: B. O art. 144, § 5º, atribui às polícias militares a polícia ostensiva e a preservação da ordem pública. A apuração de infrações penais comuns cabe, em regra, às polícias civis.' },
+      { subject: 'Direito Penal Militar', revisar: true,
+        question: 'Militar da ativa ausenta-se, sem licença, da unidade em que serve por mais de oito dias. Em tese, praticou o crime de:',
+        options: ['Insubmissão (art. 183 do CPM).', 'Abandono de posto (art. 195 do CPM).', 'Deserção (art. 187 do CPM).', 'Recusa de obediência (art. 163 do CPM).'],
+        correct: 2,
+        feedback: 'GABARITO: C. A deserção (art. 187 do CPM) exige ausência sem licença por mais de oito dias. A insubmissão é de quem não se apresenta à incorporação, e o abandono de posto não exige prazo mínimo.' },
+      { subject: 'Direito Constitucional', revisar: true,
+        question: 'Segundo a Súmula Vinculante 11 do STF, o uso de algemas é lícito:',
+        options: ['Sempre que o preso for conduzido por policiais militares.', 'Em caso de resistência e fundado receio de fuga ou perigo à integridade física, com justificativa escrita da excepcionalidade.', 'Apenas mediante ordem judicial prévia em qualquer hipótese.', 'Somente nos crimes hediondos.'],
+        correct: 1,
+        feedback: 'GABARITO: B. A SV 11 admite as algemas apenas nas hipóteses de resistência, fundado receio de fuga ou perigo à integridade física própria ou alheia, com justificativa por escrito, sob pena de responsabilização e nulidade.' },
+      { subject: 'Processo Penal', revisar: true,
+        question: 'De acordo com o STF (Tema 280), a entrada forçada em domicílio sem mandado judicial é lícita quando:',
+        options: ['Houver denúncia anônima isolada de tráfico de drogas.', 'O morador demonstrar nervosismo ao avistar a viatura.', 'Amparada em fundadas razões, justificadas posteriormente, de que ocorre flagrante delito no interior da casa.', 'Determinada verbalmente pelo comandante da guarnição, durante a noite.'],
+        correct: 2,
+        feedback: 'GABARITO: C. O Tema 280 exige fundadas razões, devidamente justificadas a posteriori, de situação de flagrante no interior da residência. Nervosismo ou denúncia anônima isolada não bastam.' },
+      { subject: 'Processo Penal', revisar: true,
+        question: 'Quem é perseguido, logo após cometer a infração, em situação que faça presumir ser o autor, encontra-se em flagrante:',
+        options: ['Próprio.', 'Impróprio.', 'Presumido.', 'Preparado.'],
+        correct: 1,
+        feedback: 'GABARITO: B. Art. 302, III, do CPP: a perseguição logo após o fato caracteriza o flagrante impróprio (quase flagrante). O presumido é o de quem é encontrado logo depois com instrumentos ou objetos que façam presumir a autoria.' },
+      { subject: 'Direito Administrativo', revisar: true,
+        question: 'Atributo do ato administrativo que permite à Administração executar suas decisões diretamente, sem prévia autorização do Poder Judiciário:',
+        options: ['Presunção de legitimidade.', 'Imperatividade.', 'Autoexecutoriedade.', 'Tipicidade.'],
+        correct: 2,
+        feedback: 'GABARITO: C. A autoexecutoriedade dispensa a via judicial prévia para executar a decisão. A imperatividade é a imposição unilateral de obrigações.' }
+    ];
+  </script>
+
+  <script>
+    /* =========================================================
+       1. NAVEGAÇÃO DE ABAS
+       ========================================================= */
+    function switchTab(tabId) {
+      try {
+        const sections = document.querySelectorAll('.tab-content');
+        sections.forEach(s => s.classList.add('hidden'));
+
+        const target = document.getElementById(tabId);
+        if (target) target.classList.remove('hidden');
+
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => {
+          if (btn.getAttribute('data-tab') === tabId) {
+            btn.className = 'tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 bg-amber-500 text-black shadow-md shadow-amber-500/20';
+          } else {
+            btn.className = 'tab-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-tactical-800';
+          }
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        console.error("Erro na navegação de abas:", err);
+      }
+    }
+
+    /* =========================================================
+       2. CICLO POMODORO & REGISTRO DE HORAS LÍQUIDAS
+       ========================================================= */
+    const HOURS_KEY = 'pmgo_study_hours_v1';
+    let studyHours = {
+      penalMilitar: 0,
+      procPenal: 0,
+      constitucional: 0,
+      administrativo: 0,
+      estatutoPmgo: 0,
+      realidadeGoias: 0,
+      redacao: 0,
+      simulados: 0
+    };
+
+    const subjectLabels = {
+      penalMilitar: 'Penal Militar',
+      procPenal: 'Proc. Penal',
+      constitucional: 'Constitucional',
+      administrativo: 'Administrativo',
+      estatutoPmgo: 'Estatuto PMGO',
+      realidadeGoias: 'Realidade GO',
+      redacao: 'Redação Tática',
+      simulados: 'Simulados'
+    };
+
+    let pomoMode = 'work'; // 'work' (50min) ou 'break' (10min)
+    let pomoSecondsRemaining = 50 * 60;
+    let pomoInterval = null;
+
+    function initStudyHours() {
+      try {
+        const saved = localStorage.getItem(HOURS_KEY);
+        if (saved) studyHours = { ...studyHours, ...JSON.parse(saved) };
+      } catch (e) {}
+      renderStudyHours();
+    }
+
+    function saveStudyHours() {
+      try {
+        localStorage.setItem(HOURS_KEY, JSON.stringify(studyHours));
+      } catch (e) {}
+      renderStudyHours();
+    }
+
+    function formatTimeHoursMins(seconds) {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      return `${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m`;
+    }
+
+    function renderStudyHours() {
+      const grid = document.getElementById('hoursGridContainer');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      let totalSec = 0;
+      Object.keys(subjectLabels).forEach(key => {
+        const sec = studyHours[key] || 0;
+        totalSec += sec;
+
+        const box = document.createElement('div');
+        box.className = 'bg-tactical-900 p-3 rounded-lg border border-tactical-800';
+        box.innerHTML = `
+          <span class="text-slate-400 text-[10px] uppercase font-bold block truncate">${subjectLabels[key]}</span>
+          <span class="text-sm font-black text-amber-400 font-mono mt-0.5 block">${formatTimeHoursMins(sec)}</span>
+        `;
+        grid.appendChild(box);
+      });
+
+      const totalTxt = formatTimeHoursMins(totalSec);
+      const globalBadge = document.getElementById('pomoTotalGlobal');
+      const topBadge = document.getElementById('topTotalStudyHours');
+      if (globalBadge) globalBadge.innerText = totalTxt;
+      if (topBadge) topBadge.innerText = totalTxt;
+    }
+
+    function setPomoMode(mode) {
+      pomoMode = mode;
+      clearInterval(pomoInterval);
+      pomoInterval = null;
+
+      const btnWork = document.getElementById('btnPomoModeWork');
+      const btnBreak = document.getElementById('btnPomoModeBreak');
+      const status = document.getElementById('pomoStatusText');
+      const btnStart = document.getElementById('btnPomoStart');
+
+      if (mode === 'work') {
+        pomoSecondsRemaining = 50 * 60;
+        btnWork.className = 'px-3 py-1 rounded-md font-bold bg-amber-500 text-black transition';
+        btnBreak.className = 'px-3 py-1 rounded-md font-bold text-slate-400 hover:text-white transition';
+        status.innerText = 'Modo Teoria / Questões (50 Min)';
+        btnStart.className = 'flex-1 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-black font-extrabold text-xs rounded-lg transition shadow-lg shadow-emerald-500/20';
+      } else {
+        pomoSecondsRemaining = 10 * 60;
+        btnBreak.className = 'px-3 py-1 rounded-md font-bold bg-sky-500 text-black transition';
+        btnWork.className = 'px-3 py-1 rounded-md font-bold text-slate-400 hover:text-white transition';
+        status.innerText = 'Modo Descanso / Alongamento (10 Min)';
+        btnStart.className = 'flex-1 py-2.5 bg-sky-500 hover:bg-sky-600 text-black font-extrabold text-xs rounded-lg transition';
+      }
+      btnStart.innerText = 'Iniciar';
+      updatePomoDisplay();
+    }
+
+    function updatePomoDisplay() {
+      const min = String(Math.floor(pomoSecondsRemaining / 60)).padStart(2, '0');
+      const sec = String(pomoSecondsRemaining % 60).padStart(2, '0');
+      const disp = document.getElementById('pomoClockDisplay');
+      if (disp) disp.innerText = `${min}:${sec}`;
+    }
+
+    let pomoEndTs = null, pomoLastSave = 0;
+    function pomoTick() {
+      const remaining = Math.max(0, Math.ceil((pomoEndTs - Date.now()) / 1000));
+      const delta = pomoSecondsRemaining - remaining;
+      if (delta > 0) {
+        pomoSecondsRemaining = remaining;
+        updatePomoDisplay();
+        if (pomoMode === 'work') {
+          const subj = document.getElementById('pomoSubjectSelect').value;
+          studyHours[subj] = (studyHours[subj] || 0) + delta;
+          if (Date.now() - pomoLastSave >= 30000 || remaining === 0) { pomoLastSave = Date.now(); saveStudyHours(); }
+        }
+      }
+      if (remaining === 0) {
+        clearInterval(pomoInterval); pomoInterval = null; pomoEndTs = null;
+        playTacticalChime();
+        alert(pomoMode === 'work' ? 'Missão cumprida! Hora do descanso tático de 10 minutos.' : 'Descanso encerrado! Retorne ao posto de estudo.');
+        setPomoMode(pomoMode === 'work' ? 'break' : 'work');
+      }
+    }
+
+    function togglePomoTimer() {
+      const btn = document.getElementById('btnPomoStart');
+      if (pomoInterval) {
+        pomoTick();
+        clearInterval(pomoInterval); pomoInterval = null; pomoEndTs = null;
+        saveStudyHours();
+        btn.innerText = 'Retomar Estudo';
+        btn.classList.add('bg-amber-500');
+      } else {
+        pomoEndTs = Date.now() + pomoSecondsRemaining * 1000;
+        btn.innerText = 'Pausar Cronômetro';
+        pomoInterval = setInterval(pomoTick, 500);
+      }
+    }
+
+    function resetPomoTimer() {
+      clearInterval(pomoInterval);
+      pomoInterval = null; pomoEndTs = null;
+      setPomoMode(pomoMode);
+    }
+
+    function resetAllStudyHours() {
+      if (confirm('Deseja zerar todas as horas líquidas registradas?')) {
+        Object.keys(studyHours).forEach(k => studyHours[k] = 0);
+        saveStudyHours();
+      }
+    }
+
+    // Alerta sonoro via Web Audio API (sem arquivos externos de áudio)
+    function playTacticalChime() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+        osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3); // A5
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.8);
+      } catch (e) {}
+    }
+
+    /* =========================================================
+       3. CASOS PRÁTICOS DE VIATURA (LABORATÓRIO DE ABORDAGEM)
+       ========================================================= */
+
+    let currentStreetCaseIdx = 0;
+    let streetCaseAnswered = false;
+
+    function renderStreetCasesNav() {
+      const nav = document.getElementById('streetCasesNav');
+      if (!nav) return;
+      nav.innerHTML = '';
+
+      streetCasesDataset.forEach((c, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `w-full text-left p-3 rounded-xl border text-xs font-bold transition flex flex-col gap-0.5 ${
+          idx === currentStreetCaseIdx 
+            ? 'bg-sky-500/20 border-sky-500 text-sky-300' 
+            : 'bg-tactical-950 border-tactical-800 text-slate-300 hover:border-tactical-700'
+        }`;
+        btn.onclick = () => selectStreetCase(idx);
+        btn.innerHTML = `
+          <span class="text-[11px] font-mono text-amber-400 font-bold">${c.title}</span>
+          <span class="text-[10px] text-slate-400 font-normal truncate">${c.brief}</span>
+        `;
+        nav.appendChild(btn);
+      });
+    }
+
+    function selectStreetCase(idx) {
+      currentStreetCaseIdx = idx;
+      streetCaseAnswered = false;
+      renderStreetCasesNav();
+      renderActiveStreetCase();
+    }
+
+    function renderActiveStreetCase() {
+      const c = streetCasesDataset[currentStreetCaseIdx];
+      const card = document.getElementById('streetCaseActiveCard');
+      if (!card) return;
+
+      const letters = ['A', 'B', 'C', 'D'];
+      let optionsHtml = '';
+      c.options.forEach((opt, idx) => {
+        optionsHtml += `
+          <button onclick="answerStreetCase(${idx})" class="street-opt-btn w-full text-left p-3.5 rounded-xl border border-tactical-800 bg-tactical-950 hover:bg-tactical-850 transition flex items-start gap-3 group text-xs sm:text-sm text-slate-200" data-idx="${idx}">
+            <span class="w-6 h-6 rounded-md bg-tactical-800 text-slate-300 font-bold font-mono text-xs flex items-center justify-center shrink-0 group-hover:bg-sky-500 group-hover:text-black transition">${letters[idx]}</span>
+            <span class="mt-0.5">${opt.text}</span>
+          </button>
+        `;
+      });
+
+      card.innerHTML = `
+        <div class="flex justify-between items-center border-b border-tactical-800 pb-3">
+          <span class="text-xs font-mono font-bold text-sky-400 bg-sky-400/10 px-2.5 py-1 rounded border border-sky-400/20">${c.title}</span>
+          <span class="text-xs text-slate-500 font-mono">Dilema Operacional</span>
+        </div>
+
+        <div class="bg-tactical-950 p-4 rounded-xl border border-tactical-800 space-y-2">
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider block">Relato da Ocorrência:</span>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">${c.narrative}</p>
+        </div>
+
+        <p class="text-xs sm:text-sm font-bold text-white pt-1">${c.question}</p>
+
+        <div class="space-y-2.5" id="streetOptionsWrapper">
+          ${optionsHtml}
+        </div>
+
+        <div id="streetFeedbackBox" class="hidden rounded-xl p-4 border text-xs sm:text-sm space-y-1.5">
+          <div id="streetFeedbackTitle" class="font-bold"></div>
+          <p id="streetFeedbackText" class="text-slate-300 leading-relaxed"></p>
+        </div>
+      `;
+    }
+
+    function answerStreetCase(optIdx) {
+      if (streetCaseAnswered) return;
+      streetCaseAnswered = true;
+
+      const c = streetCasesDataset[currentStreetCaseIdx];
+      const isCorrect = c.options[optIdx].correct;
+      const buttons = document.querySelectorAll('.street-opt-btn');
+
+      buttons.forEach((b, i) => {
+        if (c.options[i].correct) {
+          b.className = 'w-full text-left p-3.5 rounded-xl border bg-emerald-950/40 border-emerald-500 text-emerald-300 flex items-start gap-3 text-xs sm:text-sm';
+        } else if (i === optIdx && !isCorrect) {
+          b.className = 'w-full text-left p-3.5 rounded-xl border bg-red-950/40 border-red-500 text-red-300 flex items-start gap-3 text-xs sm:text-sm';
+        }
+      });
+
+      const fb = document.getElementById('streetFeedbackBox');
+      const title = document.getElementById('streetFeedbackTitle');
+      const text = document.getElementById('streetFeedbackText');
+
+      fb.classList.remove('hidden');
+      if (isCorrect) {
+        fb.className = 'rounded-xl p-4 border bg-emerald-950/30 border-emerald-500/40 space-y-1';
+        title.innerHTML = '<span class="text-emerald-400 font-bold">✓ CONDUTA OPERACIONAL PERFEITA!</span>';
+      } else {
+        fb.className = 'rounded-xl p-4 border bg-red-950/30 border-red-500/40 space-y-1';
+        title.innerHTML = '<span class="text-red-400 font-bold">✗ CONDUTA VICIADA OU ABUSIVA!</span>';
+      }
+      text.innerText = c.verdict;
+    }
+
+    /* =========================================================
+       4. SISTEMA DE EXPORTAÇÃO 'CADERNO DE ERROS / PDF LIMPO'
+       ========================================================= */
+
+    /* ===== Backup do progresso (localStorage -> arquivo JSON) ===== */
+    function exportProgress() {
+      const store = {};
+      for (let k = 0; k < localStorage.length; k++) { const key = localStorage.key(k); if (key.startsWith('pmgo_')) store[key] = localStorage.getItem(key); }
+      const blob = new Blob([JSON.stringify({ app: 'guia-tatico-pmgo', version: 1, exportedAt: new Date().toISOString(), store }, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'pmgo-progresso-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+    function importProgress(input) {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const r = new FileReader();
+      r.onload = () => {
+        try {
+          const d = JSON.parse(r.result);
+          if (d.app !== 'guia-tatico-pmgo' || typeof d.store !== 'object') throw new Error('formato');
+          if (!confirm('Importar este progresso vai substituir os dados atuais deste navegador. Continuar?')) return;
+          Object.entries(d.store).forEach(([k, v]) => { if (k.startsWith('pmgo_') && typeof v === 'string') localStorage.setItem(k, v); });
+          location.reload();
+        } catch (e) { alert('Arquivo inválido: use um backup exportado por este guia.'); }
+      };
+      r.readAsText(file);
+      input.value = '';
+    }
+
+    function triggerPrintExport() {
+      try {
+        const errContainer = document.getElementById('printErrorsList');
+        const printDate = document.getElementById('printDateGenerated');
+        
+        if (printDate) {
+          const now = new Date();
+          printDate.innerText = `Gerado em: ${now.toLocaleDateString('pt-BR')} às ${now.toLocaleTimeString('pt-BR')}`;
+        }
+
+        if (errContainer) {
+          errContainer.innerHTML = '';
+          const errors = flashcardsData.filter(f => f.status === 'error');
+
+          if (errors.length === 0) {
+            errContainer.innerHTML = `
+              <p class="text-gray-500 italic">Nenhum erro registrado nos Flashcards até o momento. Excelente aproveitamento!</p>
+            `;
+          } else {
+            errors.forEach((err, idx) => {
+              const div = document.createElement('div');
+              div.className = 'print-card border border-gray-300 p-3 rounded mb-2';
+              div.innerHTML = `
+                <p class="font-bold text-black">${idx + 1}. [${err.frontTitle}] ${err.question}</p>
+                <p class="text-gray-800 text-xs mt-1"><strong>Gabarito / Fundamento:</strong> ${err.answer}</p>
+              `;
+              errContainer.appendChild(div);
+            });
+          }
+        }
+
+        window.print();
+      } catch (err) {
+        console.error("Erro na exportação para impressão:", err);
+        alert('Combatente, utilize o comando Ctrl+P (ou Imprimir no navegador) para salvar seu relatório em PDF.');
+      }
+    }
+
+    /* =========================================================
+       5. BUSCA RÁPIDA ATUALIZADA
+       ========================================================= */
+    const normTxt = t => (t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    let searchIndex = null;
+    function buildSearchIndex() {
+      const titles = {};
+      document.querySelectorAll('.tab-btn[data-tab]').forEach(b => titles[b.dataset.tab] = b.textContent.replace(/\s+/g, ' ').trim());
+      searchIndex = [...document.querySelectorAll('.tab-content')].map(el => {
+        const raw = el.textContent.replace(/\s+/g, ' ').trim();
+        return { id: el.id, title: titles[el.id] || el.id, raw, norm: normTxt(raw) };
+      });
+    }
+    function hideSearchResults() { const b = document.getElementById('quickSearchResults'); if (b) { b.classList.add('hidden'); b.innerHTML = ''; } }
+
+    function handleQuickSearch(ev) {
+      const input = document.getElementById('quickSearchInput');
+      const box = document.getElementById('quickSearchResults');
+      const q = normTxt(input.value.trim());
+      if (ev && ev.key === 'Escape') { hideSearchResults(); return; }
+      if (q.length < 2) { hideSearchResults(); return; }
+      if (!searchIndex) buildSearchIndex();
+      const tokens = q.split(/\s+/);
+      const hits = searchIndex
+        .filter(e => tokens.every(t => e.norm.includes(t)))
+        .map(e => ({ e, n: tokens.reduce((a, t) => a + e.norm.split(t).length - 1, 0) }))
+        .sort((a, b) => b.n - a.n).slice(0, 6);
+      if (ev && ev.key === 'Enter' && hits.length) { switchTab(hits[0].e.id); hideSearchResults(); return; }
+      box.innerHTML = '';
+      box.classList.remove('hidden');
+      if (!hits.length) {
+        const d = document.createElement('div'); d.className = 'px-3 py-2 text-xs text-slate-400'; d.textContent = 'Nenhum resultado para "' + input.value.trim() + '".'; box.appendChild(d); return;
+      }
+      hits.forEach(({ e, n }) => {
+        const i = Math.max(0, e.norm.indexOf(tokens[0]));
+        const snip = (i > 40 ? '…' : '') + e.raw.slice(Math.max(0, i - 40), i + 90) + '…';
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'w-full text-left px-3 py-2 hover:bg-tactical-800 border-b border-tactical-800 last:border-0';
+        const t = document.createElement('span'); t.className = 'block text-xs font-bold text-amber-400'; t.textContent = e.title + ' · ' + n + (n === 1 ? ' ocorrência' : ' ocorrências');
+        const sp = document.createElement('span'); sp.className = 'block text-[11px] text-slate-400'; sp.textContent = snip;
+        b.append(t, sp);
+        b.onclick = () => { switchTab(e.id); hideSearchResults(); };
+        box.appendChild(b);
+      });
+    }
+
+    
+    /* =========================================================
+       6. CHECKLIST TÁTICO & PROGRESSO GERAL
+       ========================================================= */
+    const CHECKLIST_KEY = 'pmgo_checklist_v1';
+    const defaultChecklistItems = [
+      { id: 'c1', label: 'Leitura atenta do Artigo 9º do CPM (Alíneas A, B, C e E)', checked: false },
+      { id: 'c2', label: 'Memorização da regra do Motim vs. Revolta (Armas)', checked: false },
+      { id: 'c3', label: 'Prazos do Inquérito: 10d/30d (CPP) vs 20d/40d (CPPM)', checked: false },
+      { id: 'c4', label: 'Jurisprudência STF: Tema 280 (Domicílio) e SV 11 (Algemas)', checked: false },
+      { id: 'c5', label: 'Estatuto PMGO: Postos (Governador) vs Graduações (Comandante)', checked: false },
+      { id: 'c6', label: 'História GO: Marco de 1930 e transferência da capital em 1937', checked: false },
+      { id: 'c7', label: 'Prática de Redação: 1 texto dissertativo com 4 parágrafos', checked: false },
+      { id: 'c8', label: 'Treino TAF: Aferição da barra fixa e rodagem de corrida', checked: false }
+    ];
+    let checklistItems = [];
+
+    function initChecklist() {
+      try {
+        const saved = localStorage.getItem(CHECKLIST_KEY);
+        if (saved) {
+          checklistItems = JSON.parse(saved);
+        } else {
+          checklistItems = [...defaultChecklistItems];
+        }
+      } catch (e) {
+        checklistItems = [...defaultChecklistItems];
+      }
+      renderChecklist();
+    }
+
+    function renderChecklist() {
+      const container = document.getElementById('checklistWrapper');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let checkedCount = 0;
+      checklistItems.forEach((item, index) => {
+        if (item.checked) checkedCount++;
+        const row = document.createElement('label');
+        row.className = `flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition ${
+          item.checked ? 'bg-emerald-950/20 border-emerald-500/40 text-emerald-300' : 'bg-tactical-950 border-tactical-800 text-slate-300 hover:border-tactical-700'
+        }`;
+        row.innerHTML = `
+          <input type="checkbox" onchange="toggleChecklistItem(${index})" ${item.checked ? 'checked' : ''} class="w-4 h-4 rounded text-amber-500 bg-tactical-900 border-tactical-700 focus:ring-0">
+          <span class="text-xs sm:text-sm select-none">${item.label}</span>
+        `;
+        container.appendChild(row);
+      });
+
+      const pct = Math.round((checkedCount / checklistItems.length) * 100);
+      const topBadge = document.getElementById('topProgressBadge');
+      const topBar = document.getElementById('topProgressBar');
+      if (topBadge) topBadge.innerText = `${pct}%`;
+      if (topBar) topBar.style.width = `${pct}%`;
+    }
+
+    function toggleChecklistItem(index) {
+      if (checklistItems[index]) {
+        checklistItems[index].checked = !checklistItems[index].checked;
+        try {
+          localStorage.setItem(CHECKLIST_KEY, JSON.stringify(checklistItems));
+        } catch (e) {}
+        renderChecklist();
+      }
+    }
+
+    /* =========================================================
+       7. FLASHCARDS 3D & CADERNO DE ERROS
+       ========================================================= */
+
+    let currentFcFilter = 'all';
+    const FC_KEY = 'pmgo_fc_v1';
+    const FC_DIAS = [0, 1, 3, 7, 14, 30]; // intervalo (dias) por caixa 1..5
+    const isDue = c => !c.box || (c.due || 0) <= Date.now();
+    function loadFc() {
+      try {
+        const sv = JSON.parse(localStorage.getItem(FC_KEY) || '{}');
+        flashcardsData.forEach(c => { const x = sv[c.id]; if (x) { c.status = x.status || c.status; c.box = x.box || 0; c.due = x.due || 0; } });
+      } catch (e) {}
+    }
+    function saveFc() {
+      try {
+        const o = {};
+        flashcardsData.forEach(c => { if (c.box || c.status !== 'pending') o[c.id] = { status: c.status, box: c.box || 0, due: c.due || 0 }; });
+        localStorage.setItem(FC_KEY, JSON.stringify(o));
+      } catch (e) {}
+    }
+
+    function renderFlashcards() {
+      const container = document.getElementById('flashcardsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const filtered = currentFcFilter === 'errors' ? flashcardsData.filter(f => f.status === 'error')
+        : currentFcFilter === 'due' ? flashcardsData.filter(isDue) : flashcardsData;
+      const dueBadge = document.getElementById('fcDueCount');
+      if (dueBadge) dueBadge.innerText = flashcardsData.filter(isDue).length;
+
+      const errCount = flashcardsData.filter(f => f.status === 'error').length;
+      const countBadge = document.getElementById('fcErrorsCount');
+      if (countBadge) countBadge.innerText = errCount;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-500 bg-tactical-900 border border-tactical-800 rounded-2xl">
+            <p class="font-bold text-sm">Nenhum cartão encontrado neste filtro.</p>
+            <p class="text-xs mt-1">Marque cartões como "Errei" para alimentarem seu Caderno de Erros.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((card) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'perspective-card h-64';
+
+        let statusBorder = 'border-tactical-800';
+        if (card.status === 'success') statusBorder = 'border-emerald-500/50';
+        if (card.status === 'error') statusBorder = 'border-red-500/60';
+
+        wrapper.innerHTML = `
+          <div class="card-flipper cursor-pointer" id="fcFlipper-${card.id}" role="button" tabindex="0" aria-label="Cartão: ${card.frontTitle}. Pressione Enter para virar" onclick="flipCard(${card.id})" onkeydown="if(event.target===this&&(event.key==='Enter'||event.key===' ')){event.preventDefault();flipCard(${card.id})}">
+            <!-- Frente -->
+            <div class="card-front bg-tactical-900 border ${statusBorder} p-5 flex flex-col justify-between shadow-xl">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20 uppercase tracking-widest">${card.frontTitle}</span>${card.revisar ? ' <span class="text-[10px] font-bold text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/30">⚠ REVISAR</span>' : ''}
+                <p class="text-sm font-semibold text-white mt-4 leading-relaxed">${card.question}</p>
+              </div>
+              <div class="flex justify-between items-center text-[11px] text-slate-500 border-t border-tactical-800 pt-2 font-mono">
+                <span>Caixa ${card.box || 0}/5 · toque para virar</span>
+                <span class="text-amber-400">↻ Virar</span>
+              </div>
+            </div>
+            <!-- Verso -->
+            <div class="card-back bg-tactical-950 border border-amber-500/40 p-5 flex flex-col justify-between shadow-xl">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest block mb-2">RESPOSTA & FUNDAMENTO</span>
+                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">${card.answer}</p>
+              </div>
+              <div class="flex gap-2 pt-2 border-t border-tactical-800" onclick="event.stopPropagation()">
+                <button onclick="setCardStatus(${card.id}, 'success')" class="flex-1 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition">Acertei</button>
+                <button onclick="setCardStatus(${card.id}, 'error')" class="flex-1 py-1.5 rounded bg-red-600 hover:bg-red-500 text-white font-bold text-xs transition">Errei</button>
+              </div>
+            </div>
+          </div>
+        `;
+        container.appendChild(wrapper);
+      });
+    }
+
+    function flipCard(id) {
+      const flipper = document.getElementById(`fcFlipper-${id}`);
+      if (flipper) flipper.classList.toggle('is-flipped');
+    }
+
+    function setCardStatus(id, status) {
+      const c = flashcardsData.find(f => f.id === id);
+      if (!c) return;
+      c.status = status;
+      c.box = status === 'success' ? Math.min((c.box || 0) + 1, 5) : 1;
+      c.due = Date.now() + FC_DIAS[c.box] * 86400000;
+      saveFc();
+      renderFlashcards();
+    }
+
+    function filterFlashcards(t) {
+      currentFcFilter = t;
+      const base = 'px-3 py-1.5 text-xs font-bold rounded-lg transition ';
+      const off = base + 'bg-tactical-950 border border-tactical-800 text-slate-400 hover:bg-tactical-800';
+      document.getElementById('btnFcAll').className = t === 'all' ? base + 'bg-amber-500 text-black' : off;
+      document.getElementById('btnFcDue').className = t === 'due' ? base + 'bg-sky-500 text-black' : off;
+      document.getElementById('btnFcErrors').className = t === 'errors' ? base + 'bg-red-600 text-white shadow-md shadow-red-600/30' : base + 'bg-tactical-950 border border-red-500/40 text-red-400 hover:bg-red-950/30';
+      renderFlashcards();
+    }
+
+    /* =========================================================
+       8. SIMULADOR DE QUESTÕES (ESTILO INSTITUTO AOCP)
+       ========================================================= */
+
+    let quizSet = [];
+    const QUIZ_KEY = 'pmgo_quiz_stats_v1';
+    const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const ESSAY_KEY = 'pmgo_essay_draft_v1';
+    function restoreEssayDraft() {
+      const ta = document.getElementById('essayInputText');
+      if (!ta) return;
+      try { const d = localStorage.getItem(ESSAY_KEY); if (d) { ta.value = d; updateEssayStats(); } } catch (e) {}
+      ta.addEventListener('input', () => { try { localStorage.setItem(ESSAY_KEY, ta.value); } catch (e) {} });
+    }
+    function populateQuizSubjects() {
+      const sel = document.getElementById('quizSubjectSelect');
+      if (!sel) return;
+      [...new Set(quizDataset.map(q => q.subject))].forEach(sub => { const o = document.createElement('option'); o.value = sub; o.textContent = sub; sel.appendChild(o); });
+    }
+    function startQuiz() {
+      const sel = document.getElementById('quizSubjectSelect');
+      const sub = sel ? sel.value : 'all';
+      const L = ['A', 'B', 'C', 'D', 'E'];
+      quizSet = shuffle(quizDataset.filter(q => sub === 'all' || q.subject === sub)).map(q => {
+        const order = shuffle(q.options.map((_, i) => i));
+        const nc = order.indexOf(q.correct);
+        return { ...q, options: order.map(i => q.options[i]), correct: nc, feedback: q.feedback.replace(/GABARITO:\s*[A-E]/, 'GABARITO: ' + L[nc]) };
+      });
+      currentQuizIdx = 0; quizScore = 0; answeredQuestions = {};
+      renderQuiz(); renderQuizStats();
+    }
+    function recordQuizStat(subj, ok) {
+      try {
+        const st = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}');
+        const x = st[subj] || { ok: 0, total: 0 };
+        x.total++; if (ok) x.ok++; st[subj] = x;
+        localStorage.setItem(QUIZ_KEY, JSON.stringify(st));
+      } catch (e) {}
+    }
+    function renderQuizStats() {
+      const box = document.getElementById('quizStatsBox');
+      if (!box) return;
+      let st = {};
+      try { st = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}'); } catch (e) {}
+      const rows = Object.entries(st).sort((a, b) => a[1].ok / a[1].total - b[1].ok / b[1].total);
+      box.innerHTML = '';
+      if (!rows.length) { box.textContent = 'Seu desempenho por disciplina aparece aqui conforme você responde (pior desempenho primeiro).'; return; }
+      rows.forEach(([k, v]) => {
+        const pct = Math.round(100 * v.ok / v.total);
+        const row = document.createElement('div'); row.className = 'flex items-center gap-2 text-[11px] mb-1.5';
+        const n = document.createElement('span'); n.className = 'w-36 sm:w-48 truncate text-slate-300'; n.textContent = k;
+        const bar = document.createElement('div'); bar.className = 'flex-1 h-2 bg-tactical-950 rounded-full overflow-hidden';
+        const fill = document.createElement('div'); fill.className = pct >= 70 ? 'h-full bg-emerald-500' : 'h-full bg-amber-500'; fill.style.width = pct + '%'; bar.appendChild(fill);
+        const t = document.createElement('span'); t.className = 'font-mono text-slate-400 w-24 text-right'; t.textContent = pct + '% (' + v.ok + '/' + v.total + ')';
+        row.append(n, bar, t); box.appendChild(row);
+      });
+    }
+
+    let currentQuizIdx = 0;
+    let quizScore = 0;
+    let answeredQuestions = {};
+
+    function renderQuiz() {
+      const q = quizSet[currentQuizIdx];
+      if (!q) return;
+
+      const subBadge = document.getElementById('quizSubjectBadge');
+      const numTxt = document.getElementById('quizNumberText');
+      const body = document.getElementById('quizQuestionBody');
+      const list = document.getElementById('quizOptionsList');
+      const fbBox = document.getElementById('quizFeedbackBox');
+      const prevBtn = document.getElementById('btnQuizPrev');
+      const progTxt = document.getElementById('quizProgressNum');
+      const scoreTxt = document.getElementById('quizScoreNum');
+
+      if (subBadge) subBadge.innerText = q.subject + (q.revisar ? ' · ⚠ REVISAR' : '');
+      if (numTxt) numTxt.innerText = `Questão ${String(currentQuizIdx + 1).padStart(2, '0')} de ${String(quizSet.length).padStart(2, '0')}`;
+      if (body) body.innerText = q.question;
+      if (progTxt) progTxt.innerText = `${currentQuizIdx + 1}/${quizSet.length}`;
+      if (scoreTxt) scoreTxt.innerText = quizScore;
+      if (prevBtn) prevBtn.disabled = currentQuizIdx === 0;
+
+      if (list) {
+        list.innerHTML = '';
+        const letters = ['A', 'B', 'C', 'D'];
+        const isAnswered = answeredQuestions[currentQuizIdx] !== undefined;
+
+        q.options.forEach((opt, idx) => {
+          const btn = document.createElement('button');
+          let btnClass = 'w-full text-left p-3.5 rounded-xl border border-tactical-800 bg-tactical-950 hover:bg-tactical-850 transition flex items-start gap-3 group text-xs sm:text-sm text-slate-200';
+
+          if (isAnswered) {
+            if (idx === q.correct) {
+              btnClass = 'w-full text-left p-3.5 rounded-xl border bg-emerald-950/40 border-emerald-500 text-emerald-300 flex items-start gap-3 text-xs sm:text-sm';
+            } else if (idx === answeredQuestions[currentQuizIdx]) {
+              btnClass = 'w-full text-left p-3.5 rounded-xl border bg-red-950/40 border-red-500 text-red-300 flex items-start gap-3 text-xs sm:text-sm';
+            }
+          }
+
+          btn.className = btnClass;
+          btn.onclick = () => answerQuizQuestion(idx);
+          btn.innerHTML = `
+            <span class="w-6 h-6 rounded-md bg-tactical-800 text-slate-300 font-bold font-mono text-xs flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-black transition">${letters[idx]}</span>
+            <span class="mt-0.5">${opt}</span>
+          `;
+          list.appendChild(btn);
+        });
+      }
+
+      if (fbBox) {
+        if (answeredQuestions[currentQuizIdx] !== undefined) {
+          const isCorrect = answeredQuestions[currentQuizIdx] === q.correct;
+          fbBox.classList.remove('hidden');
+          fbBox.className = `rounded-xl p-4 border text-xs sm:text-sm space-y-1.5 ${
+            isCorrect ? 'bg-emerald-950/30 border-emerald-500/40' : 'bg-red-950/30 border-red-500/40'
+          }`;
+          document.getElementById('quizFeedbackTitle').innerHTML = isCorrect 
+            ? '<span class="text-emerald-400 font-bold">✓ RESPOSTA CORRETA!</span>' 
+            : '<span class="text-red-400 font-bold">✗ RESPOSTA INCORRETA!</span>';
+          document.getElementById('quizFeedbackText').innerText = q.feedback;
+        } else {
+          fbBox.classList.add('hidden');
+        }
+      }
+    }
+
+    function answerQuizQuestion(selectedIdx) {
+      if (answeredQuestions[currentQuizIdx] !== undefined) return;
+      const q = quizSet[currentQuizIdx];
+      answeredQuestions[currentQuizIdx] = selectedIdx;
+      if (selectedIdx === q.correct) quizScore++;
+      recordQuizStat(q.subject, selectedIdx === q.correct);
+      renderQuiz();
+      renderQuizStats();
+    }
+
+    function nextQuizQuestion() {
+      if (currentQuizIdx < quizSet.length - 1) {
+        currentQuizIdx++;
+        renderQuiz();
+      } else {
+        alert(`Simulado Finalizado! Sua pontuação foi de ${quizScore} acerto(s) de ${quizSet.length}.`);
+      }
+    }
+
+    function prevQuizQuestion() {
+      if (currentQuizIdx > 0) {
+        currentQuizIdx--;
+        renderQuiz();
+      }
+    }
+
+    /* =========================================================
+       9. CALCULADORA DO TAF PMGO
+       ========================================================= */
+    let tafSex = 'M';
+
+    /* TAF — Edital nº 002/2022 (SEAD/PMGO, Instituto AOCP), item 13 e Tabelas 13.3 / 13.4. Cada teste vale 0 a 10 pontos; apto = média >= 5 e pontuar em todos; natação é apto/inapto. */
+    const TAF_CONFIG = {
+      fonte: 'Edital 002/2022, item 13',
+      corteMedia: 5,
+      M: [
+        { k: 'barra',   nome: 'Tração na barra fixa',          un: 'reps', min: 2,    passo: 1,   def: 6 },
+        { k: 'flex',    nome: 'Flexão de braços (4 apoios)',   un: 'reps', min: 20,   passo: 2,   def: 28 },
+        { k: 'abdo',    nome: 'Abdominal curl-up',             un: 'reps', min: 40,   passo: 2,   def: 48 },
+        { k: 'corrida', nome: 'Corrida de 12 min',             un: 'm',    min: 2000, passo: 100, def: 2400 }
+      ],
+      F: [
+        { k: 'barra',   nome: 'Tração na barra (isometria)',   un: 'seg',  min: 20,   passo: 5,   def: 35 },
+        { k: 'flex',    nome: 'Flexão de braços (6 apoios)',   un: 'reps', min: 20,   passo: 2,   def: 28 },
+        { k: 'abdo',    nome: 'Abdominal curl-up',             un: 'reps', min: 34,   passo: 2,   def: 42 },
+        { k: 'corrida', nome: 'Corrida de 12 min',             un: 'm',    min: 1600, passo: 100, def: 2000 }
+      ]
+    };
+    const fmtMil = n => n.toLocaleString('pt-BR');
+    function tafPontos(t, v) { return v >= t.min ? Math.min(10, Math.floor((v - t.min) / t.passo)) : null; }
+
+    function setTafSex(sex) {
+      tafSex = sex;
+      const on = 'py-2 text-xs font-bold rounded-lg bg-amber-500 text-black transition';
+      const off = 'py-2 text-xs font-bold rounded-lg bg-tactical-950 text-slate-300 border border-tactical-800 transition';
+      document.getElementById('btnSexM').className = sex === 'M' ? on : off;
+      document.getElementById('btnSexF').className = sex === 'F' ? on : off;
+      const box = document.getElementById('tafInputs');
+      box.innerHTML = '';
+      TAF_CONFIG[sex].forEach(t => {
+        const d = document.createElement('div');
+        const top = document.createElement('div'); top.className = 'flex justify-between text-xs mb-1';
+        const lb = document.createElement('label'); lb.className = 'font-bold text-slate-300'; lb.htmlFor = 'taf-' + t.k; lb.textContent = t.nome + ' (' + t.un + ')';
+        const mn = document.createElement('span'); mn.className = 'text-slate-400 font-mono'; mn.textContent = 'Mín: ' + fmtMil(t.min);
+        top.append(lb, mn);
+        const inp = document.createElement('input'); inp.type = 'number'; inp.id = 'taf-' + t.k; inp.value = t.def; inp.min = 0; inp.oninput = calculateTaf;
+        inp.className = 'w-full bg-tactical-950 border border-tactical-800 rounded-lg p-2.5 text-sm text-white focus:ring-2 focus:ring-amber-500 focus:outline-none font-mono';
+        d.append(top, inp); box.appendChild(d);
+      });
+      calculateTaf();
+    }
+
+    function calculateTaf() {
+      const tests = TAF_CONFIG[tafSex];
+      const nado = document.getElementById('tafNado').checked;
+      const rows = tests.map(t => { const v = parseFloat(document.getElementById('taf-' + t.k)?.value || 0); return { t, v, p: tafPontos(t, v) }; });
+      const todosPontuam = rows.every(r => r.p !== null);
+      const soma = rows.reduce((a, r) => a + (r.p || 0), 0);
+      const media = soma / tests.length;
+      const apto = todosPontuam && media >= TAF_CONFIG.corteMedia && nado;
+      const card = (ok, titulo, linha1, linha2) => `<div class="bg-tactical-950 p-3 rounded-xl border ${ok ? 'border-emerald-500/30' : 'border-red-500/40'}"><span class="text-[11px] font-bold text-slate-400 uppercase">${titulo}</span><p class="${ok ? 'text-emerald-400' : 'text-red-400'} font-bold text-sm mt-1">${linha1}</p><p class="text-xs text-slate-500 mt-0.5">${linha2}</p></div>`;
+      const cards = rows.map(({ t, v, p }) => p === null
+        ? card(false, t.nome, 'Não pontua ✗', `${fmtMil(v)} ${t.un} — faltam ${fmtMil(t.min - v)} ${t.un} para o mínimo`)
+        : card(true, t.nome, `${p} ponto${p === 1 ? '' : 's'}`, `${fmtMil(v)} ${t.un}` + (p < 10 ? ` — próximo ponto em ${fmtMil(t.min + (p + 1) * t.passo)}` : ' — nota máxima'))).join('')
+        + card(nado, 'Natação 25 m', nado ? 'Apto ✓' : 'Inapto ✗', 'apto/inapto, sem pontos');
+      const msg = !todosPontuam ? 'Em ao menos um teste você ficou abaixo do mínimo da tabela e não pontua. Pelo item 13.2.2 isso reprova.'
+        : !nado ? 'A natação de 25 m é eliminatória: ser considerado inapto reprova.'
+        : media < TAF_CONFIG.corteMedia ? `Média ${media.toFixed(1).replace('.', ',')}: faltam ${fmtMil(tests.length * TAF_CONFIG.corteMedia - soma)} ponto(s) somados para chegar à média 5.`
+        : 'Média acima do corte. Treine para ter folga: não há segunda chance em nenhum teste (item 13.2.3).';
+      document.getElementById('tafResults').innerHTML = `
+        <div class="flex justify-between items-center border-b border-tactical-800 pb-3"><h3 class="text-base font-bold text-white">Resultado</h3>
+          <span class="px-3 py-1 ${apto ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-red-500/20 text-red-400 border-red-500/30'} border text-xs font-black tracking-widest rounded-md uppercase">${apto ? 'Apto' : 'Inapto'} · média ${media.toFixed(1).replace('.', ',')}</span></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${cards}</div>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed bg-tactical-950 p-4 rounded-xl border border-tactical-800">${msg}</p>
+        <p class="text-[11px] text-slate-500 leading-relaxed">Fonte: ${TAF_CONFIG.fonte}. Apto = média aritmética simples ≥ 5 nos quatro testes pontuados, sem deixar de pontuar em nenhum. No mínimo da tabela o teste vale 0,0; confirme no edital como a banca trata esse caso. Um próximo edital pode mudar tudo.</p>`;
+    }
+
+        /* =========================================================
+       10. REDAÇÃO & CORRETOR INTELIGENTE (ESTÚDIO AOCP)
+       ========================================================= */
+    const sampleThemes = [
+      "A atuação da PMGO no combate ao crime organizado e a integração com a sociedade.",
+      "O uso progressivo da força e a garantia dos direitos humanos na atividade policial.",
+      "O papel da tecnologia e inteligência artificial no policiamento ostensivo e preventivo.",
+      "A saúde mental do policial militar e os reflexos na segurança pública."
+    ];
+
+    let essayTimerSeconds = 0;
+    let essayTimerInterval = null;
+
+    function applySelectedTheme() {
+      const select = document.getElementById('essayThemeSelect');
+      if (select) {
+        const idx = parseInt(select.value, 10);
+        const area = document.getElementById('essayInputText');
+        if (area && !area.value.trim()) {
+          area.setAttribute('placeholder', `Desenvolva sua tese para: "${sampleThemes[idx]}" em 4 parágrafos...`);
+        }
+      }
+    }
+
+    function toggleEssayTimer() {
+      const btn = document.getElementById('btnEssayTimer');
+      const disp = document.getElementById('essayTimerDisplay');
+      if (!btn || !disp) return;
+
+      if (essayTimerInterval) {
+        clearInterval(essayTimerInterval);
+        essayTimerInterval = null;
+        btn.innerText = 'Iniciar';
+      } else {
+        btn.innerText = 'Pausar';
+        essayTimerInterval = setInterval(() => {
+          essayTimerSeconds++;
+          const m = String(Math.floor(essayTimerSeconds / 60)).padStart(2, '0');
+          const s = String(essayTimerSeconds % 60).padStart(2, '0');
+          disp.innerText = `${m}:${s}`;
+        }, 1000);
+      }
+    }
+
+    function updateEssayStats() {
+      const txt = document.getElementById('essayInputText')?.value || '';
+      const words = txt.trim() ? txt.trim().split(/\s+/).length : 0;
+      const paragraphs = txt.trim() ? txt.split(/\n+/).filter(p => p.trim().length > 0).length : 0;
+      const lines = Math.round(words / 9);
+
+      const wordSpan = document.getElementById('essayWordCount');
+      const paraSpan = document.getElementById('essayParaCount');
+      const lineSpan = document.getElementById('essayLineCount');
+
+      if (wordSpan) wordSpan.innerText = words;
+      if (paraSpan) paraSpan.innerText = paragraphs;
+      if (lineSpan) lineSpan.innerText = lines;
+    }
+
+    function clearEssay() {
+      try { localStorage.removeItem(ESSAY_KEY); } catch (e) {}
+      const txt = document.getElementById('essayInputText');
+      if (txt) {
+        txt.value = '';
+        updateEssayStats();
+      }
+      const box = document.getElementById('essayResultBox');
+      if (box) box.classList.add('hidden');
+    }
+
+    function insertSampleEssay() {
+      const sample = `A Constituição Cidadã de 1988 preconiza, em seu artigo 144, que a segurança pública é dever do Estado, direito e responsabilidade de todos. No contexto de Goiás, a atuação ostensiva da Polícia Militar consolida-se como vetor indispensável na contenção do crime organizado, necessitando de constante modernização e sintonia com a sociedade civil.\n\nNesse sentido, a desarticulação das facções criminosas exige a integração de inteligência tática e cooperação comunitária. Sob a ótica do sociólogo Zygmunt Bauman, a insegurança contemporânea decorre da fragilização dos laços sociais; logo, o policiamento de proximidade reverte a desconfiança pública e restringe as margens operacionais de grupos armados no território goiano.\n\nPor outro lado, o emprego progressivo e proporcional da força militar constitui garantia elementar do Estado Democrático de Direito. A capacitação continuada do efetivo da PMGO blinda os agentes contra excessos e fortalece a legitimidade de suas abordagens nas áreas conurbadas, a exemplo do Entorno do Distrito Federal.\n\nInfere-se, portanto, a urgência de medidas estratégicas. Cabe ao Governo do Estado de Goiás, em parceria com a Secretaria de Segurança Pública, intensificar os investimentos em radiocomunicação digital e programas de policiamento comunitário. Dessa forma, mediante ações pautadas na técnica e no respeito aos direitos fundamentais, consolidar-se-á a paz social preconizada pela Carta Magna.`;
+
+      const area = document.getElementById('essayInputText');
+      if (area) {
+        area.value = sample;
+        updateEssayStats();
+      }
+    }
+
+    function evaluateEssayNow() {
+      const text = document.getElementById('essayInputText')?.value.trim() || '';
+      if (text.length < 150) {
+        alert('Combatente, escreva ao menos 150 caracteres para submeter à avaliação automática.');
+        return;
+      }
+
+      const words = text.split(/\s+/).length;
+      const paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0).length;
+      const box = document.getElementById('essayResultBox');
+      if (!box) return;
+
+      const hasCF = /constitui|artigo 144|carta magna/i.test(text);
+      const hasConnectives = /portanto|nesse sentido|por outro lado|além disso|ademais/i.test(text);
+
+      let scoreC1 = paragraphs === 4 ? 20 : 14;
+      let scoreC2 = hasCF ? 20 : 15;
+      let scoreC3 = hasConnectives ? 20 : 14;
+      let scoreC4 = words >= 200 ? 19 : 14;
+      let scoreC5 = /cabe ao|portanto|governo|secretaria/i.test(text) ? 20 : 15;
+
+      const total = scoreC1 + scoreC2 + scoreC3 + scoreC4 + scoreC5;
+
+      document.getElementById('essayTotalScore').innerText = total;
+      const badge = document.getElementById('essayVerdictBadge');
+      if (badge) {
+        if (total >= 70) {
+          badge.className = 'px-3 py-1.5 rounded-lg text-xs font-black tracking-widest uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+          badge.innerText = 'APROVADO';
+        } else {
+          badge.className = 'px-3 py-1.5 rounded-lg text-xs font-black tracking-widest uppercase bg-amber-500/20 text-amber-400 border border-amber-500/30';
+          badge.innerText = 'REVISÃO RECOMENDADA';
+        }
+      }
+
+      const cardsContainer = document.getElementById('criteriaCardsContainer');
+      if (cardsContainer) {
+        cardsContainer.innerHTML = `
+          <div class="p-3 bg-tactical-950 rounded-xl border border-tactical-800 text-center">
+            <span class="text-[10px] text-slate-400 uppercase font-bold block">1. Tema & Tese</span>
+            <span class="text-lg font-black text-amber-400 font-mono">${scoreC1}/20</span>
+          </div>
+          <div class="p-3 bg-tactical-950 rounded-xl border border-tactical-800 text-center">
+            <span class="text-[10px] text-slate-400 uppercase font-bold block">2. Estrutura (4P)</span>
+            <span class="text-lg font-black text-amber-400 font-mono">${scoreC2}/20</span>
+          </div>
+          <div class="p-3 bg-tactical-950 rounded-xl border border-tactical-800 text-center">
+            <span class="text-[10px] text-slate-400 uppercase font-bold block">3. Coesão</span>
+            <span class="text-lg font-black text-amber-400 font-mono">${scoreC3}/20</span>
+          </div>
+          <div class="p-3 bg-tactical-950 rounded-xl border border-tactical-800 text-center">
+            <span class="text-[10px] text-slate-400 uppercase font-bold block">4. Norma Culta</span>
+            <span class="text-lg font-black text-amber-400 font-mono">${scoreC4}/20</span>
+          </div>
+          <div class="p-3 bg-tactical-950 rounded-xl border border-tactical-800 text-center">
+            <span class="text-[10px] text-slate-400 uppercase font-bold block">5. Intervenção</span>
+            <span class="text-lg font-black text-amber-400 font-mono">${scoreC5}/20</span>
+          </div>
+        `;
+      }
+
+      const strList = document.getElementById('essayStrengthsList');
+      const flawList = document.getElementById('essayFlawsList');
+
+      if (strList) {
+        strList.innerHTML = `
+          <li>Vocabulário formal e assertivo compatível com carreiras policiais.</li>
+          <li>Articulação adequada com normas constitucionais e dever de segurança.</li>
+          <li>Organização dos parágrafos com teses bem definidas.</li>
+        `;
+      }
+
+      if (flawList) {
+        flawList.innerHTML = `
+          <li>Mantenha o rigor na pontuação entre orações subordinadas e orações adverbiais.</li>
+          <li>Certifique-se de que a proposta de intervenção contenha os 4 elementos obrigatórios (Agente, Ação, Meio e Efeito).</li>
+        `;
+      }
+
+      box.classList.remove('hidden');
+      box.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* =========================================================
+       11. ALTERNADOR MOTIM VS REVOLTA & MODAL
+       ========================================================= */
+    function toggleMotimRevolta(type) {
+      const btnM = document.getElementById('btnMotimTab');
+      const btnR = document.getElementById('btnRevoltaTab');
+      const title = document.getElementById('mrTitle');
+      const pena = document.getElementById('mrPena');
+      const armas = document.getElementById('mrArmas');
+      const desc = document.getElementById('mrArmasDesc');
+      const mnem = document.getElementById('mrMnem');
+
+      if (type === 'motim') {
+        btnM.className = 'px-3 py-1 bg-amber-500 text-black text-xs font-bold rounded';
+        btnR.className = 'px-3 py-1 bg-tactical-950 text-slate-300 text-xs font-bold rounded hover:bg-tactical-800';
+        title.innerText = 'MOTIM (ART. 149 DO CPM)';
+        pena.innerText = 'Pena: Reclusão 4 a 8 anos';
+        armas.innerText = 'DESARMADOS (MÃOS LIMPAS)';
+        desc.innerText = 'Nenhum militar empunha armas na ação.';
+        mnem.innerText = 'M = MÃOS LIMPAS';
+      } else {
+        btnR.className = 'px-3 py-1 bg-red-600 text-white text-xs font-bold rounded';
+        btnM.className = 'px-3 py-1 bg-tactical-950 text-slate-300 text-xs font-bold rounded hover:bg-tactical-800';
+        title.innerText = 'REVOLTA (ART. 149, P. ÚNICO DO CPM)';
+        pena.innerText = 'Pena: Reclusão 8 a 20 anos';
+        armas.innerText = 'ARMADOS (COM ARMAS DE FOGO)';
+        desc.innerText = 'Basta um portar arma com ciência dos outros.';
+        mnem.innerText = 'R = REVÓLVER / RIFLE';
+      }
+    }
+
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.toggle('hidden');
+    }
+
+    /* =========================================================
+       12. INICIALIZAÇÃO SEGURA ATUALIZADA
+       ========================================================= */
+
+    /* ===== Acessibilidade (ARIA e teclado) ===== */
+    function updateTabAria() {
+      document.querySelectorAll('.tab-btn[data-tab]').forEach(b => {
+        const sel = !b.classList.contains('text-slate-400');
+        b.setAttribute('aria-selected', sel ? 'true' : 'false');
+        b.tabIndex = sel ? 0 : -1;
+      });
+    }
+    function enhanceA11y() {
+      const nav = document.getElementById('navTabsContainer');
+      if (nav) {
+        nav.setAttribute('role', 'tablist'); nav.setAttribute('aria-label', 'Seções do guia');
+        const tabs = [...nav.querySelectorAll('.tab-btn[data-tab]')];
+        tabs.forEach(b => { b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', b.dataset.tab); b.id = 'btn-' + b.dataset.tab; });
+        nav.addEventListener('keydown', e => {
+          const i = tabs.indexOf(document.activeElement);
+          if (i < 0 || !['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const n = e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+          tabs[n].focus(); tabs[n].click();
+          tabs[n].focus();
+        });
+      }
+      document.querySelectorAll('.tab-content').forEach(p => { p.setAttribute('role', 'tabpanel'); p.setAttribute('aria-labelledby', 'btn-' + p.id); });
+      document.querySelectorAll('[onclick]').forEach(el => {
+        if (['BUTTON', 'A', 'INPUT', 'SELECT', 'LABEL'].includes(el.tagName) || el.hasAttribute('tabindex')) return;
+        el.setAttribute('role', 'button'); el.tabIndex = 0;
+        if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', (el.textContent || 'Ação').replace(/\s+/g, ' ').trim().slice(0, 60) || 'Ir para o início');
+        el.addEventListener('keydown', e => { if (e.target === el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); el.click(); } });
+      });
+      const lbl = { inBarra: 'Barra fixa', inAbdo: 'Abdominal em um minuto', inCorrida: 'Corrida de 12 minutos, em metros', pomoSubjectSelect: 'Disciplina em estudo' };
+      Object.entries(lbl).forEach(([id, t]) => { const el = document.getElementById(id); if (el && !el.getAttribute('aria-label')) el.setAttribute('aria-label', t); });
+      const cl = document.getElementById('quickSearchResults'); if (cl) cl.removeAttribute('role');
+      updateTabAria();
+    }
+    const _switchTabOrig = switchTab;
+    switchTab = function (id) { _switchTabOrig(id); updateTabAria(); };
+
+    /* ===== PWA: registro do service worker (uso offline) ===== */
+    if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      try { enhanceA11y(); } catch (e) { console.error(e); }
+      try {
+        initChecklist();
+        initStudyHours();
+        renderStreetCasesNav();
+        renderActiveStreetCase();
+        loadFc();
+        renderFlashcards();
+        populateQuizSubjects();
+        startQuiz();
+        restoreEssayDraft();
+        setTafSex('M');
+        applySelectedTheme();
+      } catch (err) {
+        console.error("Erro na inicialização:", err);
+      }
+    });
+  </script>
+</body>
+</html>
